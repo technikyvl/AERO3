@@ -6,7 +6,16 @@ export default function LandingPage() {
   const [clickedNav, setClickedNav] = useState<string | null>(null)
   const [clickedMain, setClickedMain] = useState(false)
   const [copiedItem, setCopiedItem] = useState<string | null>(null)
-  const [currentPage, setCurrentPage] = useState<'home' | 'contact'>('home')
+  const [currentPage, setCurrentPage] = useState<'home' | 'contact' | 'form'>('home')
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [formData, setFormData] = useState({
+    serviceType: '',
+    phoneNumber: '',
+    websiteUrl: '',
+    budget: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleNavClick = (item: string) => {
     setClickedNav(item)
@@ -32,6 +41,223 @@ export default function LandingPage() {
     } catch (err) {
       console.error('Failed to copy: ', err)
     }
+  }
+
+  const handleFormSubmit = async () => {
+    setIsSubmitting(true)
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'kontakt@aerodigital.pl',
+          subject: 'Nowy formularz kontaktowy',
+          data: formData
+        })
+      })
+      
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        console.error('Failed to send email')
+      }
+    } catch (error) {
+      console.error('Error sending email:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const nextQuestion = () => {
+    if (currentQuestion < 3) {
+      setCurrentQuestion(currentQuestion + 1)
+    } else {
+      handleFormSubmit()
+    }
+  }
+
+  const prevQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1)
+    }
+  }
+
+  const resetForm = () => {
+    setCurrentQuestion(0)
+    setFormData({
+      serviceType: '',
+      phoneNumber: '',
+      websiteUrl: '',
+      budget: ''
+    })
+    setIsSubmitted(false)
+    setCurrentPage('home')
+  }
+
+  // Form Page Component
+  const FormPage = () => {
+    const questions = [
+      {
+        id: 'serviceType',
+        question: 'Jaki rodzaj usługi cię interesuje?',
+        type: 'select',
+        options: ['Strona internetowa', 'Kampania reklamowa']
+      },
+      {
+        id: 'phoneNumber',
+        question: 'Numer telefonu:',
+        type: 'text',
+        placeholder: 'Wprowadź swój numer telefonu'
+      },
+      {
+        id: 'websiteUrl',
+        question: 'URL do Instagram/strony internetowej twojej firmy',
+        type: 'text',
+        placeholder: 'Wprowadź URL'
+      },
+      {
+        id: 'budget',
+        question: 'Ile pieniędzy możesz przeznaczyć na skalowanie twojej marki?',
+        type: 'text',
+        placeholder: 'Wprowadź kwotę'
+      }
+    ]
+
+    const currentQ = questions[currentQuestion]
+
+    if (isSubmitted) {
+      return (
+        <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+          {/* Navigation */}
+          <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
+            <div className="liquid-glass-dark rounded-full px-8 py-4">
+              <div className="flex space-x-8">
+                {['Strona Główna', 'Kontakt'].map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => handleNavClick(item)}
+                    className={`font-ascender font-light text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
+                      clickedNav === item ? 'click-glass' : ''
+                    } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </nav>
+
+          {/* Success Message */}
+          <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
+            <div className="text-center max-w-2xl">
+              <h1 className="text-6xl md:text-8xl font-bold text-white font-ki-bold tracking-wide mb-8">
+                DZIĘKUJEMY!
+              </h1>
+              <p className="text-2xl text-white/80 font-inter mb-12">
+                To wszystko. Skontaktujemy się z tobą wkrótce.
+              </p>
+              <button
+                onClick={resetForm}
+                className="liquid-glass-dark rounded-2xl px-12 py-6 text-2xl font-ki-bold text-white hover:bg-white/10 transition-all duration-300"
+              >
+                WRÓĆ DO STRONY GŁÓWNEJ
+              </button>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+        {/* Navigation */}
+        <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="liquid-glass-dark rounded-full px-8 py-4">
+            <div className="flex space-x-8">
+              {['Strona Główna', 'Kontakt'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => handleNavClick(item)}
+                  className={`font-ascender font-light text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
+                    clickedNav === item ? 'click-glass' : ''
+                  } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+        </nav>
+
+        {/* Form Content */}
+        <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
+          <div className="text-center max-w-2xl w-full">
+            <h1 className="text-5xl md:text-7xl font-bold text-white font-ki-bold tracking-wide mb-16">
+              FORMULARZ
+            </h1>
+            
+            <div className="liquid-glass-dark rounded-2xl p-8 mb-8">
+              <h2 className="text-3xl font-ki-bold text-white mb-8">
+                {currentQ.question}
+              </h2>
+              
+              {currentQ.type === 'select' ? (
+                <div className="space-y-4">
+                  {currentQ.options?.map((option) => (
+                    <button
+                      key={option}
+                      onClick={() => {
+                        setFormData({...formData, [currentQ.id]: option})
+                        setTimeout(nextQuestion, 300)
+                      }}
+                      className={`w-full liquid-glass-dark rounded-xl p-4 text-xl font-inter text-white hover:bg-white/10 transition-all duration-300 ${
+                        formData[currentQ.id as keyof typeof formData] === option ? 'bg-white/20' : ''
+                      }`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  <input
+                    type="text"
+                    value={formData[currentQ.id as keyof typeof formData]}
+                    onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
+                    placeholder={currentQ.placeholder}
+                    className="w-full liquid-glass-dark rounded-xl p-4 text-xl font-inter text-white placeholder-white/50 bg-transparent border-none outline-none"
+                  />
+                  <div className="flex gap-4 justify-center">
+                    {currentQuestion > 0 && (
+                      <button
+                        onClick={prevQuestion}
+                        className="liquid-glass-dark rounded-xl px-8 py-3 text-lg font-ki-bold text-white hover:bg-white/10 transition-all duration-300"
+                      >
+                        WSTECZ
+                      </button>
+                    )}
+                    <button
+                      onClick={nextQuestion}
+                      disabled={!formData[currentQ.id as keyof typeof formData]}
+                      className="liquid-glass-dark rounded-xl px-8 py-3 text-lg font-ki-bold text-white hover:bg-white/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'WYSYŁANIE...' : currentQuestion === 3 ? 'WYŚLIJ' : 'DALEJ'}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            <div className="text-white/60 font-inter">
+              Pytanie {currentQuestion + 1} z {questions.length}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   // Contact Page Component
@@ -213,7 +439,10 @@ export default function LandingPage() {
           <p className="text-2xl text-white/80 font-inter mb-12">
             Rozpocznij swoją podróż do sukcesu online
           </p>
-          <button className="glassmorphism-button rounded-2xl px-12 py-6 text-2xl font-ki-bold text-white hover:bg-white/10 transition-all duration-300">
+          <button 
+            onClick={() => setCurrentPage('form')}
+            className="glassmorphism-button rounded-2xl px-12 py-6 text-2xl font-ki-bold text-white hover:bg-white/10 transition-all duration-300"
+          >
             WYPEŁNIJ FORMULARZ
           </button>
         </div>
