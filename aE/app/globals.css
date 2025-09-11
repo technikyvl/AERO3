@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    /* Updated to cyberpunk color scheme */
+    --background: 0 0% 0%; /* Black background */
+    --foreground: 0 0% 100%; /* White text */
+    --card: 0 0% 10%; /* Dark card background */
+    --card-foreground: 0 0% 100%; /* White text on cards */
+    --popover: 0 0% 10%; /* Background for popovers */
+    --popover-foreground: 0 0% 100%; /* Text color for popovers */
+    --primary: 180 100% 50%; /* Neon Teal for call-to-action buttons */
+    --primary-foreground: 0 0% 0%; /* Black text on neon buttons */
+    --secondary: 300 100% 50%; /* Neon Magenta for additional accents */
+    --secondary-foreground: 0 0% 0%; /* Black text on secondary accents */
+    --muted: 0 0% 49%; /* Muted grey for secondary text */
+    --muted-foreground: 0 0% 100%; /* White text for muted elements */
+    --accent: 180 100% 50%; /* Neon Teal for highlighted elements */
+    --accent-foreground: 0 0% 0%; /* Black text on highlighted sections */
+    --destructive: 14 100% 50%; /* Red for error messages */
+    --destructive-foreground: 0 0% 100%; /* White text for error messages */
+    --border: 0 0% 20%; /* Dark border for cards and sections */
+    --input: 0 0% 10%; /* Dark input fields */
+    --ring: 180 100% 50%; /* Neon Teal ring for focus states */
+    --chart-1: 180 100% 50%; /* Neon Teal for charts */
+    --chart-2: 300 100% 50%; /* Neon Magenta for charts */
+    --chart-3: 14 100% 50%; /* Red for charts */
+    --chart-4: 0 0% 100%; /* White for charts */
+    --chart-5: 0 0% 49%; /* Grey for charts */
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 300 100% 50%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added cyberpunk animation keyframes */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes neon-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.glitch-animation {
+  animation: glitch 0.3s infinite;
+}
+
+.neon-glow {
+  animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+.fade-in {
+  animation: fade-in 1s ease-in-out;
+}
