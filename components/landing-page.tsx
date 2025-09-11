@@ -64,13 +64,7 @@ export default function LandingPage() {
     // Success Section
     'DZIĘKUJEMY!': 'THANK YOU!',
     'To wszystko. Skontaktujemy się z tobą wkrótce.': 'That\'s all. We will contact you soon.',
-    'WRÓĆ DO STRONY GŁÓWNEJ': 'BACK TO HOME PAGE',
-    
-    // Form Questions
-    'Jaki rodzaj usługi cię interesuje?': 'What type of service are you interested in?',
-    'Numer telefonu:': 'Phone number:',
-    'URL do Instagram/strony internetowej twojej firmy': 'URL to Instagram/website of your company',
-    'Ile pieniędzy możesz przeznaczyć na skalowanie twojej marki?': 'How much money can you allocate to scaling your brand?'
+    'WRÓĆ DO STRONY GŁÓWNEJ': 'BACK TO HOME PAGE'
   }
 
   const translateText = (text: string) => {
