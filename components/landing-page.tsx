@@ -86,54 +86,6 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Enhanced liquid glass and metallic animations */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Liquid glass orbs with enhanced animations */}
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-8 h-8 liquid-glass rounded-full glass-float liquid-morph ${showElements ? 'opacity-100' : 'opacity-0'}`}
-            style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + (i % 2) * 30}%`,
-              animationDelay: `${i * 0.8}s`,
-              transitionDelay: `${1 + i * 0.3}s`
-            }}
-          />
-        ))}
-        
-        {/* Metallic lightning elements */}
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={`lightning-${i}`}
-            className={`absolute lightning-vertical ${showElements ? 'opacity-100' : 'opacity-0'}`}
-            style={{
-              left: `${20 + i * 20}%`,
-              top: `${10 + (i % 2) * 40}%`,
-              width: '2px',
-              height: '60px',
-              animationDelay: `${i * 1.2}s`,
-              transitionDelay: `${1.5 + i * 0.4}s`
-            }}
-          />
-        ))}
-        
-        {/* Horizontal lightning elements */}
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={`h-lightning-${i}`}
-            className={`absolute lightning ${showElements ? 'opacity-100' : 'opacity-0'}`}
-            style={{
-              left: `${10 + i * 30}%`,
-              top: `${30 + i * 20}%`,
-              width: '80px',
-              height: '2px',
-              animationDelay: `${i * 1.5}s`,
-              transitionDelay: `${2 + i * 0.5}s`
-            }}
-          />
-        ))}
-      </div>
     </div>
   )
 }
