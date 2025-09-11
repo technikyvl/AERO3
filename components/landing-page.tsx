@@ -63,77 +63,69 @@ export default function LandingPage() {
             KONTAKT
           </h1>
           
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Email */}
-            <div className="flex items-center justify-between py-4 border-b border-white/20">
-              <div className="text-left">
-                <h3 className="text-2xl font-ki-bold mb-2 text-white">Email</h3>
-                <p className="text-xl font-inter text-white/80">kontakt@aerodigital.pl</p>
+            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex items-center justify-between">
+                <div className="text-left">
+                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Email</h3>
+                  <p className="text-xl font-inter text-white/80">kontakt@aerodigital.pl</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                >
+                  {copiedItem === 'email' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                </button>
               </div>
-              <button
-                onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
-                className="text-white hover:text-white/70 transition-colors duration-300"
-              >
-                {copiedItem === 'email' ? (
-                  <span className="text-2xl">✓</span>
-                ) : (
-                  <img src="/copy.png" alt="Copy" className="w-8 h-8" />
-                )}
-              </button>
             </div>
 
             {/* Phone */}
-            <div className="flex items-center justify-between py-4 border-b border-white/20">
-              <div className="text-left">
-                <h3 className="text-2xl font-ki-bold mb-2 text-white">Telefon</h3>
-                <p className="text-xl font-inter text-white/80">510830344</p>
+            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex items-center justify-between">
+                <div className="text-left">
+                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Telefon</h3>
+                  <p className="text-xl font-inter text-white/80">510830344</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('510830344', 'phone')}
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                >
+                  {copiedItem === 'phone' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                </button>
               </div>
-              <button
-                onClick={() => copyToClipboard('510830344', 'phone')}
-                className="text-white hover:text-white/70 transition-colors duration-300"
-              >
-                {copiedItem === 'phone' ? (
-                  <span className="text-2xl">✓</span>
-                ) : (
-                  <img src="/copy.png" alt="Copy" className="w-8 h-8" />
-                )}
-              </button>
             </div>
 
             {/* Instagram */}
-            <div className="flex items-center justify-between py-4 border-b border-white/20">
-              <div className="text-left">
-                <h3 className="text-2xl font-ki-bold mb-2 text-white">Instagram</h3>
-                <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex items-center justify-between">
+                <div className="text-left">
+                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Instagram</h3>
+                  <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                >
+                  {copiedItem === 'instagram' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                </button>
               </div>
-              <button
-                onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
-                className="text-white hover:text-white/70 transition-colors duration-300"
-              >
-                {copiedItem === 'instagram' ? (
-                  <span className="text-2xl">✓</span>
-                ) : (
-                  <img src="/copy.png" alt="Copy" className="w-8 h-8" />
-                )}
-              </button>
             </div>
 
             {/* Facebook */}
-            <div className="flex items-center justify-between py-4 border-b border-white/20">
-              <div className="text-left">
-                <h3 className="text-2xl font-ki-bold mb-2 text-white">Facebook</h3>
-                <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex items-center justify-between">
+                <div className="text-left">
+                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Facebook</h3>
+                  <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('aerodigital.pl', 'facebook')}
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                >
+                  {copiedItem === 'facebook' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                </button>
               </div>
-              <button
-                onClick={() => copyToClipboard('aerodigital.pl', 'facebook')}
-                className="text-white hover:text-white/70 transition-colors duration-300"
-              >
-                {copiedItem === 'facebook' ? (
-                  <span className="text-2xl">✓</span>
-                ) : (
-                  <img src="/copy.png" alt="Copy" className="w-8 h-8" />
-                )}
-              </button>
             </div>
           </div>
         </div>
