@@ -18,7 +18,6 @@ export default function LandingPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [typingComplete, setTypingComplete] = useState(false)
 
   const handleNavClick = (item: string) => {
     setClickedNav(item)
@@ -76,9 +75,7 @@ export default function LandingPage() {
 
   const nextQuestion = () => {
     if (currentQuestion < 5) {
-      setTypingComplete(false)
       setCurrentQuestion(currentQuestion + 1)
-      setTimeout(() => setTypingComplete(true), 100)
     } else {
       handleFormSubmit()
     }
@@ -86,9 +83,7 @@ export default function LandingPage() {
 
   const prevQuestion = () => {
     if (currentQuestion > 0) {
-      setTypingComplete(false)
       setCurrentQuestion(currentQuestion - 1)
-      setTimeout(() => setTypingComplete(true), 100)
     }
   }
 
@@ -103,19 +98,11 @@ export default function LandingPage() {
       budget: ''
     })
     setIsSubmitted(false)
-    setTypingComplete(false)
     setCurrentPage('home')
-    setTimeout(() => setTypingComplete(true), 100)
   }
 
   // Form Page Component
   const FormPage = () => {
-    useEffect(() => {
-      setTypingComplete(false)
-      const timer = setTimeout(() => setTypingComplete(true), 100)
-      return () => clearTimeout(timer)
-    }, [currentQuestion])
-
     const questions = [
       {
         id: 'name',
