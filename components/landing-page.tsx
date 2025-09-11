@@ -169,15 +169,15 @@ export default function LandingPage() {
           {/* Success Message */}
           <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
             <div className="text-center max-w-2xl">
-              <h1 className="text-6xl md:text-8xl font-bold text-white font-ki-bold tracking-wide mb-8">
+              <h1 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-8">
                 DZIĘKUJEMY!
               </h1>
-              <p className="text-2xl text-white/80 font-inter mb-12">
+              <p className="text-2xl text-white/80 font-ascender mb-12">
                 To wszystko. Skontaktujemy się z tobą wkrótce.
               </p>
               <button
                 onClick={resetForm}
-                className="liquid-glass-dark rounded-2xl px-12 py-6 text-2xl font-ki-bold text-white hover:bg-white/10 transition-all duration-300"
+                className="liquid-glass-dark rounded-2xl px-12 py-6 text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300"
               >
                 WRÓĆ DO STRONY GŁÓWNEJ
               </button>
@@ -259,7 +259,7 @@ export default function LandingPage() {
                     <button
                       onClick={nextQuestion}
                       disabled={!formData[currentQ.id as keyof typeof formData]}
-                      className="metallic-button rounded-xl px-8 py-3 text-lg font-ki-bold text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="metallic-button rounded-xl px-8 py-3 text-lg font-ascender text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'WYSYŁANIE...' : currentQuestion === 5 ? 'WYŚLIJ' : 'DALEJ'}
                     </button>
@@ -268,7 +268,7 @@ export default function LandingPage() {
               )}
             </div>
             
-            <div className="text-white/60 font-inter smooth-transition">
+            <div className="text-white/60 font-ascender smooth-transition">
               Pytanie {currentQuestion + 1} z {questions.length}
             </div>
           </div>
