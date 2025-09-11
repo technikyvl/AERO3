@@ -36,6 +36,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
@@ -45,6 +49,7 @@ html {
   --font-ascender: 'JetBrains Mono', monospace;
   --font-dm-sans: 'DM Sans', sans-serif;
   --font-ki-bold: 'Jura', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
         `}</style>
       </head>

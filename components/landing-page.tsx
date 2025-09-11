@@ -51,7 +51,7 @@ export default function LandingPage() {
               <h1 className="text-5xl md:text-7xl font-bold text-white font-ki-bold tracking-wide mb-8 leading-tight">
                 SKALUJEMY FIRMY ONLINE
               </h1>
-              <p className="text-xl text-white/80 font-ki-bold mb-8 leading-relaxed">
+              <p className="text-xl text-white/80 font-inter mb-8 leading-relaxed">
                 Dedykowane strategie marketingowe, które łączą się z odbiorcami, generują mierzalne rezultaty i wspierają znaczący wzrost.
               </p>
             </div>

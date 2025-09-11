@@ -349,6 +349,18 @@
   }
 }
 
+@keyframes bounce-arrow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 /* Animation Classes */
 .glitch-animation {
   animation: glitch 0.3s infinite;
@@ -409,6 +421,11 @@
   font-weight: 600;
 }
 
+.font-inter {
+  font-family: var(--font-inter);
+  font-weight: 500;
+}
+
 /* Click animations */
 .click-glass {
   animation: glass-click 0.6s ease-out;
@@ -454,6 +471,16 @@
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.bounce-arrow {
+  animation: bounce-arrow 2s infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bounce-arrow:hover {
+  transform: translateY(-5px);
 }
 
 .text-gradient {
