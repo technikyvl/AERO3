@@ -12,6 +12,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'saira': ['var(--font-saira)', 'sans-serif'],
+        'sans': ['var(--font-sans)', 'sans-serif'],
+        'mono': ['var(--font-mono)', 'monospace'],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

@@ -6,18 +6,86 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Liquid Glass Effects */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .liquid-glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Metallic Effects */
+  .metallic {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+      0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .metallic-chrome {
+    background: linear-gradient(135deg, 
+      #e8e8e8 0%,
+      #f5f5f5 25%,
+      #d0d0d0 50%,
+      #f5f5f5 75%,
+      #e8e8e8 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+      0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* iOS 26 Inspired Animations */
+  .ios-morph {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .ios-scale {
+    transform: scale(1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .ios-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .ios-scale:active {
+    transform: scale(0.98);
+  }
 }
 
 @layer base {
   :root {
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
-    /* Updated to cyberpunk color scheme */
+    --font-saira: 'Saira', sans-serif;
+    
+    /* Enhanced color scheme with metallic accents */
     --background: 0 0% 0%; /* Black background */
     --foreground: 0 0% 100%; /* White text */
-    --card: 0 0% 10%; /* Dark card background */
+    --card: 0 0% 5%; /* Darker card background */
     --card-foreground: 0 0% 100%; /* White text on cards */
-    --popover: 0 0% 10%; /* Background for popovers */
+    --popover: 0 0% 5%; /* Background for popovers */
     --popover-foreground: 0 0% 100%; /* Text color for popovers */
     --primary: 180 100% 50%; /* Neon Teal for call-to-action buttons */
     --primary-foreground: 0 0% 0%; /* Black text on neon buttons */
@@ -58,7 +126,7 @@
   }
 }
 
-/* Added cyberpunk animation keyframes */
+/* Enhanced animation keyframes */
 @keyframes glitch {
   0% {
     transform: translate(0);
@@ -99,6 +167,93 @@
   }
 }
 
+/* iOS 26 Inspired Animations */
+@keyframes liquid-morph {
+  0% {
+    border-radius: 20px;
+    transform: scale(0.8) rotate(0deg);
+    filter: blur(0px);
+  }
+  25% {
+    border-radius: 40px;
+    transform: scale(1.1) rotate(2deg);
+    filter: blur(1px);
+  }
+  50% {
+    border-radius: 60px;
+    transform: scale(0.9) rotate(-1deg);
+    filter: blur(0px);
+  }
+  75% {
+    border-radius: 30px;
+    transform: scale(1.05) rotate(1deg);
+    filter: blur(0.5px);
+  }
+  100% {
+    border-radius: 20px;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes metallic-shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glass-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(25px) scale(0.9);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes liquid-drip {
+  0% {
+    transform: translateY(-100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
 .glitch-animation {
   animation: glitch 0.3s infinite;
 }
@@ -109,4 +264,45 @@
 
 .fade-in {
   animation: fade-in 1s ease-in-out;
+}
+
+.liquid-morph {
+  animation: liquid-morph 3s ease-in-out infinite;
+}
+
+.metallic-shine {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: metallic-shine 2s ease-in-out infinite;
+}
+
+.glass-float {
+  animation: glass-float 4s ease-in-out infinite;
+}
+
+.text-reveal {
+  animation: text-reveal 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.liquid-drip {
+  animation: liquid-drip 2s ease-in-out infinite;
+}
+
+/* Enhanced Typography */
+.font-saira {
+  font-family: var(--font-saira);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00ffcc, #ff00cc, #00ffcc);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: metallic-shine 3s ease-in-out infinite;
 }

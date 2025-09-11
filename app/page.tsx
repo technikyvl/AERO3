@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLanding(true)
-    }, 4000) // 4 seconds for intro animation
+    }, 5000) // 5 seconds for enhanced intro animation
 
     return () => clearTimeout(timer)
   }, [])
