@@ -451,5 +451,7 @@ export default function LandingPage() {
   )
 
   // Main render with conditional page display
-  return currentPage === 'contact' ? <ContactPage /> : <HomePage />
+  if (currentPage === 'contact') return <ContactPage />
+  if (currentPage === 'form') return <FormPage />
+  return <HomePage />
 }
