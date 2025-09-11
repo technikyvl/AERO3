@@ -211,12 +211,12 @@ export default function LandingPage() {
         {/* Form Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
           <div className="text-center max-w-2xl w-full">
-            <h1 className="text-5xl md:text-7xl font-bold text-white font-ki-bold tracking-wide mb-16">
+            <h1 className="text-5xl md:text-7xl font-bold text-white font-ascender tracking-wide mb-16 smooth-transition">
               FORMULARZ
             </h1>
             
-            <div className="liquid-glass-dark rounded-2xl p-8 mb-8">
-              <h2 className="text-3xl font-ki-bold text-white mb-8">
+            <div className="liquid-glass-dark rounded-2xl p-8 mb-8 smooth-transition">
+              <h2 className="text-3xl font-inter text-white mb-8 typing-animation">
                 {currentQ.question}
               </h2>
               
@@ -227,9 +227,9 @@ export default function LandingPage() {
                       key={option}
                       onClick={() => {
                         setFormData({...formData, [currentQ.id]: option})
-                        setTimeout(nextQuestion, 300)
+                        setTimeout(nextQuestion, 500)
                       }}
-                      className={`w-full liquid-glass-dark rounded-xl p-4 text-xl font-inter text-white hover:bg-white/10 transition-all duration-300 ${
+                      className={`w-full metallic-button rounded-xl p-4 text-xl font-inter text-white smooth-transition ${
                         formData[currentQ.id as keyof typeof formData] === option ? 'bg-white/20' : ''
                       }`}
                     >
@@ -244,13 +244,14 @@ export default function LandingPage() {
                     value={formData[currentQ.id as keyof typeof formData]}
                     onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
                     placeholder={currentQ.placeholder}
-                    className="w-full liquid-glass-dark rounded-xl p-4 text-xl font-inter text-white placeholder-white/50 bg-transparent border-none outline-none"
+                    className="w-full liquid-glass-dark rounded-xl p-4 text-xl font-inter text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
+                    autoFocus
                   />
                   <div className="flex gap-4 justify-center">
                     {currentQuestion > 0 && (
                       <button
                         onClick={prevQuestion}
-                        className="liquid-glass-dark rounded-xl px-8 py-3 text-lg font-ki-bold text-white hover:bg-white/10 transition-all duration-300"
+                        className="metallic-button rounded-xl px-8 py-3 text-lg font-ki-bold text-white smooth-transition"
                       >
                         WSTECZ
                       </button>
@@ -258,16 +259,16 @@ export default function LandingPage() {
                     <button
                       onClick={nextQuestion}
                       disabled={!formData[currentQ.id as keyof typeof formData]}
-                      className="liquid-glass-dark rounded-xl px-8 py-3 text-lg font-ki-bold text-white hover:bg-white/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="metallic-button rounded-xl px-8 py-3 text-lg font-ki-bold text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? 'WYSYŁANIE...' : currentQuestion === 3 ? 'WYŚLIJ' : 'DALEJ'}
+                      {isSubmitting ? 'WYSYŁANIE...' : currentQuestion === 5 ? 'WYŚLIJ' : 'DALEJ'}
                     </button>
                   </div>
                 </div>
               )}
             </div>
             
-            <div className="text-white/60 font-inter">
+            <div className="text-white/60 font-inter smooth-transition">
               Pytanie {currentQuestion + 1} z {questions.length}
             </div>
           </div>
