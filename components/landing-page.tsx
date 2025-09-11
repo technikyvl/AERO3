@@ -545,7 +545,7 @@ export default function LandingPage() {
           <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12 mb-12 md:mb-16">
             {/* Left side - Text content */}
             <div className="flex-1 text-left w-full lg:w-auto">
-              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8 leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-normal mb-6 md:mb-8 leading-tight">
                 {translateText('SKALUJEMY FIRMY ONLINE')}
               </h1>
               <p className="text-lg md:text-xl text-white/80 font-inter mb-6 md:mb-8 leading-relaxed">
@@ -604,7 +604,7 @@ export default function LandingPage() {
           </button>
           
           {/* Back to Top Arrow */}
-          <div className="flex justify-center mt-20">
+          <div className="flex justify-center mt-32">
             <div 
               className="bounce-arrow-up text-white text-4xl"
               onClick={() => {
