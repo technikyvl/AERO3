@@ -44,22 +44,28 @@ export default function LandingPage() {
       {/* Hero Section */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-32">
         <div className="text-center max-w-6xl">
-          {/* Hero content */}
-          <div className="mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-white font-ki-bold tracking-wide mb-8">
-              SKALUJEMY FIRMY ONLINE
-            </h1>
+          {/* Hero content - Layout like the image */}
+          <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
+            {/* Left side - Text content */}
+            <div className="flex-1 text-left">
+              <h1 className="text-5xl md:text-7xl font-bold text-white font-ki-bold tracking-wide mb-8 leading-tight">
+                SKALUJEMY FIRMY ONLINE
+              </h1>
+              <p className="text-xl text-white/80 font-ki-bold mb-8 leading-relaxed">
+                Dedykowane strategie marketingowe, które łączą się z odbiorcami, generują mierzalne rezultaty i wspierają znaczący wzrost.
+              </p>
+            </div>
             
-            {/* Images side by side */}
-            <div className="flex justify-center items-center gap-8 mb-12">
-              <div className="glassmorphism-button rounded-2xl p-4 w-80 h-80 flex items-center justify-center">
+            {/* Right side - Images */}
+            <div className="flex-1 flex gap-6 justify-center lg:justify-end">
+              <div className="glassmorphism-button rounded-2xl p-4 w-96 h-96 flex items-center justify-center">
                 <img 
                   src="/kampania.png" 
                   alt="Kampanie Reklamowe" 
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <div className="glassmorphism-button rounded-2xl p-4 w-80 h-80 flex items-center justify-center">
+              <div className="glassmorphism-button rounded-2xl p-4 w-96 h-96 flex items-center justify-center">
                 <img 
                   src="/stat.png" 
                   alt="Statystyki" 
