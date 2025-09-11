@@ -36,10 +36,10 @@ export default function LandingPage() {
 
   // Contact Page Component
   const ContactPage = () => (
-    <div className="min-h-screen bg-white text-black relative overflow-y-auto">
+    <div className="min-h-screen bg-black text-white relative overflow-y-auto">
       {/* Navigation */}
       <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="bg-black/10 backdrop-blur-md rounded-full px-8 py-4 border border-black/20">
+        <div className="liquid-glass-dark rounded-full px-8 py-4">
           <div className="flex space-x-8">
             {['Strona Główna', 'Kontakt'].map((item) => (
               <button
@@ -47,7 +47,7 @@ export default function LandingPage() {
                 onClick={() => handleNavClick(item)}
                 className={`font-ascender font-light text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
                   clickedNav === item ? 'click-glass' : ''
-                } ${currentPage === item ? 'text-black font-bold' : 'text-black/70'} hover:text-black`}
+                } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
               >
                 {item}
               </button>
@@ -59,13 +59,13 @@ export default function LandingPage() {
       {/* Contact Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
         <div className="text-center max-w-2xl w-full">
-          <h1 className="text-6xl md:text-8xl font-bold text-black font-ki-bold tracking-wide mb-16">
+          <h1 className="text-6xl md:text-8xl font-bold text-white font-ki-bold tracking-wide mb-16">
             KONTAKT
           </h1>
           
           <div className="space-y-6">
             {/* Email */}
-            <div className="bg-black text-white p-6 rounded-none border-2 border-black hover:bg-gray-900 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Email</h3>
@@ -73,7 +73,7 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
-                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
                 >
                   {copiedItem === 'email' ? '✓' : '📋'}
                 </button>
@@ -81,7 +81,7 @@ export default function LandingPage() {
             </div>
 
             {/* Phone */}
-            <div className="bg-black text-white p-6 rounded-none border-2 border-black hover:bg-gray-900 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Telefon</h3>
@@ -89,7 +89,7 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('510830344', 'phone')}
-                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
                 >
                   {copiedItem === 'phone' ? '✓' : '📋'}
                 </button>
@@ -97,7 +97,7 @@ export default function LandingPage() {
             </div>
 
             {/* Instagram */}
-            <div className="bg-black text-white p-6 rounded-none border-2 border-black hover:bg-gray-900 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Instagram</h3>
@@ -105,7 +105,7 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
-                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
                 >
                   {copiedItem === 'instagram' ? '✓' : '📋'}
                 </button>
@@ -113,7 +113,7 @@ export default function LandingPage() {
             </div>
 
             {/* Facebook */}
-            <div className="bg-black text-white p-6 rounded-none border-2 border-black hover:bg-gray-900 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Facebook</h3>
@@ -121,19 +121,12 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'facebook')}
-                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
                 >
                   {copiedItem === 'facebook' ? '✓' : '📋'}
                 </button>
               </div>
             </div>
-          </div>
-
-          {/* Hours */}
-          <div className="mt-12">
-            <p className="text-2xl font-inter text-black">
-              Czynne całodobowo
-            </p>
           </div>
         </div>
       </div>
