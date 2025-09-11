@@ -410,24 +410,24 @@ export default function LandingPage() {
   const HomePage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
       {/* Logo */}
-      <div className="fixed top-8 left-8 z-50">
+      <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
         <button
           onClick={() => setCurrentPage('home')}
-          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+          className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
         >
           <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
         </button>
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="liquid-glass-dark rounded-full px-8 py-4">
-          <div className="flex space-x-8">
+      <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:transform md:-translate-x-1/2">
+        <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
+          <div className="flex space-x-4 md:space-x-8">
             {['Strona Główna', 'Kontakt'].map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`font-ascender font-light text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
+                className={`font-ascender font-light text-xs md:text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
                   clickedNav === item ? 'click-glass' : ''
                 } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
               >
@@ -439,30 +439,30 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-32">
-        <div className="text-center max-w-6xl">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
+        <div className="text-center max-w-6xl w-full">
           {/* Hero content - Layout like the image */}
-          <div className="flex flex-col lg:flex-row items-start gap-12 mb-16">
+          <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12 mb-12 md:mb-16">
             {/* Left side - Text content */}
-            <div className="flex-1 text-left">
-              <h1 className="text-5xl md:text-7xl font-bold text-white font-ascender tracking-wide mb-8 leading-tight">
+            <div className="flex-1 text-left w-full lg:w-auto">
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8 leading-tight">
                 SKALUJEMY FIRMY ONLINE
               </h1>
-              <p className="text-xl text-white/80 font-inter mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/80 font-inter mb-6 md:mb-8 leading-relaxed">
                 Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.
               </p>
             </div>
             
             {/* Right side - Images */}
-            <div className="flex-1 flex flex-col lg:flex-row gap-6 justify-center lg:justify-end">
-              <div className="glassmorphism-button rounded-2xl p-4 w-full max-w-[400px] h-[400px] lg:w-[400px] flex items-center justify-center">
+            <div className="flex-1 flex flex-col sm:flex-row lg:flex-row gap-4 md:gap-6 justify-center lg:justify-end w-full lg:w-auto">
+              <div className="glassmorphism-button rounded-2xl p-3 md:p-4 w-full max-w-[300px] h-[300px] sm:max-w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex items-center justify-center mx-auto lg:mx-0">
                 <img 
                   src="/kampania.png" 
                   alt="Kampanie Reklamowe" 
                   className="w-full h-full object-contain rounded-xl"
                 />
               </div>
-              <div className="glassmorphism-button rounded-2xl p-4 w-full max-w-[400px] h-[400px] lg:w-[400px] flex items-center justify-center">
+              <div className="glassmorphism-button rounded-2xl p-3 md:p-4 w-full max-w-[300px] h-[300px] sm:max-w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex items-center justify-center mx-auto lg:mx-0">
                 <img 
                   src="/stat.png" 
                   alt="Statystyki" 
@@ -488,17 +488,17 @@ export default function LandingPage() {
       </div>
 
       {/* Apply Now Section */}
-      <div id="apply-section" className="relative z-10 flex items-center justify-center min-h-screen px-6">
-        <div className="text-center">
-          <h2 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-8">
+      <div id="apply-section" className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6">
+        <div className="text-center max-w-4xl">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8">
             ZAAPLIKUJ TERAZ
           </h2>
-          <p className="text-2xl text-white/80 font-inter mb-12">
+          <p className="text-lg md:text-2xl text-white/80 font-inter mb-8 md:mb-12">
             Rozpocznij swoją podróż do sukcesu online
           </p>
           <button 
             onClick={() => setCurrentPage('form')}
-            className="glassmorphism-button rounded-2xl px-12 py-6 text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300"
+            className="glassmorphism-button rounded-2xl px-8 py-4 md:px-12 md:py-6 text-lg md:text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300 w-full max-w-md mx-auto"
           >
             WYPEŁNIJ FORMULARZ
           </button>
