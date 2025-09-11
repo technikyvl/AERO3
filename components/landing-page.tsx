@@ -269,7 +269,7 @@ export default function LandingPage() {
     }
 
     return (
-      <div className="h-screen bg-black text-white relative flex flex-col">
+      <div className="min-h-screen bg-black text-white relative flex flex-col">
         {/* Logo - Desktop only */}
         <div className="hidden md:block fixed top-8 left-8 z-50">
           <button
@@ -377,7 +377,7 @@ export default function LandingPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-white/10 py-8 px-4">
+      <footer className="bg-black border-t border-white/10 py-8 px-4 mt-auto">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <button
@@ -399,7 +399,7 @@ export default function LandingPage() {
 
   // Contact Page Component
   const ContactPage = () => (
-    <div className="h-screen bg-black text-white relative flex flex-col">
+    <div className="min-h-screen bg-black text-white relative flex flex-col">
       {/* Logo - Desktop only */}
       <div className="hidden md:block fixed top-8 left-8 z-50">
         <button
@@ -440,7 +440,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Contact Content */}
-      <div className="relative z-10 flex items-center justify-center flex-1 overflow-y-auto px-4 md:px-6 pt-20 md:pt-32">
+      <div className="relative z-10 flex items-center justify-center flex-1 px-4 md:px-6 pt-20 md:pt-32">
         <div className="text-center max-w-2xl w-full">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16">
             {translateText('KONTAKT')}
@@ -515,7 +515,7 @@ export default function LandingPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-white/10 py-8 px-4">
+      <footer className="bg-black border-t border-white/10 py-8 px-4 mt-auto">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <button
@@ -536,7 +536,7 @@ export default function LandingPage() {
 
   // Home Page Component
   const HomePage = () => (
-    <div className="h-screen bg-black text-white relative flex flex-col">
+    <div className="min-h-screen bg-black text-white relative flex flex-col">
       {/* Logo - Desktop only */}
       <div className="hidden md:block fixed top-8 left-8 z-50">
         <button
@@ -577,7 +577,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <div id="hero-section" className="relative z-10 flex flex-col items-center justify-center flex-1 overflow-y-auto px-4 md:px-6 pt-20 md:pt-32">
+      <div id="hero-section" className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 md:px-6 pt-20 md:pt-32">
         <div className="text-center max-w-6xl w-full">
           {/* Hero content - Layout like the image */}
           <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12 mb-12 md:mb-16">
@@ -659,7 +659,7 @@ export default function LandingPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-white/10 py-8 px-4">
+      <footer className="bg-black border-t border-white/10 py-8 px-4 mt-auto">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <button
