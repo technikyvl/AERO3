@@ -59,6 +59,7 @@ export default function LandingPage() {
     'WYŚLIJ': 'SEND',
     'WYSYŁANIE...': 'SENDING...',
     'Pytanie': 'Question',
+    'ODWIEDŹ': 'VISIT',
     'z': 'of',
     
     // Success Section
@@ -269,11 +270,11 @@ export default function LandingPage() {
 
     return (
       <div className="min-h-screen bg-black text-white relative overflow-y-auto">
-        {/* Logo */}
-        <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
+        {/* Logo - Desktop only */}
+        <div className="hidden md:block fixed top-8 left-8 z-50">
           <button
             onClick={() => setCurrentPage('home')}
-            className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+            className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
           >
             <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
           </button>
@@ -380,11 +381,11 @@ export default function LandingPage() {
   // Contact Page Component
   const ContactPage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
-      {/* Logo */}
-      <div className="fixed top-20 left-4 z-50 md:top-8 md:left-8">
+      {/* Logo - Desktop only */}
+      <div className="hidden md:block fixed top-8 left-8 z-50">
         <button
           onClick={() => setCurrentPage('home')}
-          className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
         >
           <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
         </button>
@@ -499,11 +500,11 @@ export default function LandingPage() {
   // Home Page Component
   const HomePage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
-      {/* Logo */}
-      <div className="fixed top-20 left-4 z-50 md:top-8 md:left-8">
+      {/* Logo - Desktop only */}
+      <div className="hidden md:block fixed top-8 left-8 z-50">
         <button
           onClick={() => setCurrentPage('home')}
-          className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
         >
           <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
         </button>
