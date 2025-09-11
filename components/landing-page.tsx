@@ -147,6 +147,16 @@ export default function LandingPage() {
     if (isSubmitted) {
       return (
         <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+          {/* Logo */}
+          <div className="fixed top-8 left-8 z-50">
+            <button
+              onClick={() => setCurrentPage('home')}
+              className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+            >
+              <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+            </button>
+          </div>
+
           {/* Navigation */}
           <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
             <div className="liquid-glass-dark rounded-full px-8 py-4">
