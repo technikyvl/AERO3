@@ -311,12 +311,12 @@ export default function LandingPage() {
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
           <div className="text-center max-w-2xl w-full">
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16 smooth-transition">
-              FORMULARZ
+              {translateText('FORMULARZ')}
             </h1>
             
             <div className="liquid-glass-dark rounded-2xl p-4 md:p-8 mb-6 md:mb-8 smooth-transition">
               <h2 className="text-xl md:text-3xl font-ascender text-white mb-6 md:mb-8">
-                {currentQ.question}
+                {translateText(currentQ.question)}
               </h2>
               
               {currentQ.type === 'select' ? (
@@ -332,7 +332,7 @@ export default function LandingPage() {
                         formData[currentQ.id as keyof typeof formData] === option ? 'bg-white/20' : ''
                       }`}
                     >
-                      {option}
+                      {translateText(option)}
                     </button>
                   ))}
                 </div>
@@ -446,14 +446,14 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Telefon</h3>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">{translateText('Telefon')}</h3>
                   <p className="text-lg md:text-xl font-inter text-white/80">510830344</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('510830344', 'phone')}
                   className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
-                  {copiedItem === 'phone' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                  {copiedItem === 'phone' ? translateText('SKOPIOWANO') : translateText('KOPIUJ')}
                 </button>
               </div>
             </div>
@@ -462,14 +462,14 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Instagram</h3>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">{translateText('Instagram')}</h3>
                   <p className="text-lg md:text-xl font-inter text-white/80">aerodigital.pl</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
                   className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
-                  {copiedItem === 'instagram' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                  {copiedItem === 'instagram' ? translateText('SKOPIOWANO') : translateText('KOPIUJ')}
                 </button>
               </div>
             </div>
@@ -478,14 +478,14 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Facebook</h3>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">{translateText('Facebook')}</h3>
                   <p className="text-lg md:text-xl font-inter text-white/80">Aero Digital</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('Aero Digital', 'facebook')}
                   className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
-                  {copiedItem === 'facebook' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                  {copiedItem === 'facebook' ? translateText('SKOPIOWANO') : translateText('KOPIUJ')}
                 </button>
               </div>
             </div>
