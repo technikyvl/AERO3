@@ -375,7 +375,26 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-    )
+
+      {/* Footer */}
+      <footer className="bg-black border-t border-white/10 py-8 px-4">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setCurrentPage('home')}
+              className="text-xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+            >
+              <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+            </button>
+            <span className="text-white/60 font-ascender text-sm">2025</span>
+          </div>
+          <div className="text-white/60 font-inter text-sm text-center md:text-right">
+            Wojciech Zaniewski & Jakub Eliasik
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
   }
 
   // Contact Page Component
