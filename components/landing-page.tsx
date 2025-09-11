@@ -65,7 +65,7 @@ export default function LandingPage() {
           
           <div className="space-y-6">
             {/* Email */}
-            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Email</h3>
@@ -73,15 +73,19 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
-                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300"
                 >
-                  {copiedItem === 'email' ? '✓' : '📋'}
+                  {copiedItem === 'email' ? (
+                    <span className="text-2xl">✓</span>
+                  ) : (
+                    <img src="/copy.png" alt="Copy" className="w-8 h-8" />
+                  )}
                 </button>
               </div>
             </div>
 
             {/* Phone */}
-            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Telefon</h3>
@@ -89,15 +93,19 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('510830344', 'phone')}
-                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300"
                 >
-                  {copiedItem === 'phone' ? '✓' : '📋'}
+                  {copiedItem === 'phone' ? (
+                    <span className="text-2xl">✓</span>
+                  ) : (
+                    <img src="/copy.png" alt="Copy" className="w-8 h-8" />
+                  )}
                 </button>
               </div>
             </div>
 
             {/* Instagram */}
-            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Instagram</h3>
@@ -105,15 +113,19 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
-                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300"
                 >
-                  {copiedItem === 'instagram' ? '✓' : '📋'}
+                  {copiedItem === 'instagram' ? (
+                    <span className="text-2xl">✓</span>
+                  ) : (
+                    <img src="/copy.png" alt="Copy" className="w-8 h-8" />
+                  )}
                 </button>
               </div>
             </div>
 
             {/* Facebook */}
-            <div className="bg-white text-black p-6 rounded-none border-2 border-white hover:bg-gray-100 transition-colors duration-300">
+            <div className="bg-white text-black p-6 rounded-none hover:bg-gray-100 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ki-bold mb-2">Facebook</h3>
@@ -121,9 +133,13 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'facebook')}
-                  className="text-black hover:text-black/70 transition-colors duration-300 text-2xl"
+                  className="text-black hover:text-black/70 transition-colors duration-300"
                 >
-                  {copiedItem === 'facebook' ? '✓' : '📋'}
+                  {copiedItem === 'facebook' ? (
+                    <span className="text-2xl">✓</span>
+                  ) : (
+                    <img src="/copy.png" alt="Copy" className="w-8 h-8" />
+                  )}
                 </button>
               </div>
             </div>
