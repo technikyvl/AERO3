@@ -343,7 +343,7 @@ export default function LandingPage() {
                   <input
                     type="text"
                     value={formData[currentQ.id as keyof typeof formData]}
-                    onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, [currentQ.id]: e.target.value})}
                     placeholder={translateText(currentQ.placeholder || '')}
                     className="w-full liquid-glass-dark rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
                     autoFocus
