@@ -216,7 +216,7 @@ export default function LandingPage() {
             </h1>
             
             <div className="liquid-glass-dark rounded-2xl p-8 mb-8 smooth-transition">
-              <h2 className="text-3xl font-inter text-white mb-8">
+              <h2 className="text-3xl font-ascender text-white mb-8">
                 {currentQ.question}
               </h2>
               
@@ -229,7 +229,7 @@ export default function LandingPage() {
                         setFormData({...formData, [currentQ.id]: option})
                         setTimeout(nextQuestion, 500)
                       }}
-                      className={`w-full metallic-button rounded-xl p-4 text-xl font-inter text-white smooth-transition ${
+                      className={`w-full metallic-button rounded-xl p-4 text-xl font-ascender text-white smooth-transition ${
                         formData[currentQ.id as keyof typeof formData] === option ? 'bg-white/20' : ''
                       }`}
                     >
@@ -405,10 +405,10 @@ export default function LandingPage() {
           <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
             {/* Left side - Text content */}
             <div className="flex-1 text-left">
-              <h1 className="text-5xl md:text-7xl font-bold text-white font-ki-bold tracking-wide mb-8 leading-tight">
+              <h1 className="text-5xl md:text-7xl font-bold text-white font-ascender tracking-wide mb-8 leading-tight">
                 SKALUJEMY FIRMY ONLINE
               </h1>
-              <p className="text-xl text-white/80 font-inter mb-8 leading-relaxed">
+              <p className="text-xl text-white/80 font-ascender mb-8 leading-relaxed">
                 Dedykowane strategie marketingowe, które łączą się z odbiorcami, generują mierzalne rezultaty i wspierają znaczący wzrost.
               </p>
             </div>
@@ -450,15 +450,15 @@ export default function LandingPage() {
       {/* Apply Now Section */}
       <div id="apply-section" className="relative z-10 flex items-center justify-center min-h-screen px-6">
         <div className="text-center">
-          <h2 className="text-6xl md:text-8xl font-bold text-white font-ki-bold tracking-wide mb-8">
+          <h2 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-8">
             ZAAPLIKUJ TERAZ
           </h2>
-          <p className="text-2xl text-white/80 font-inter mb-12">
+          <p className="text-2xl text-white/80 font-ascender mb-12">
             Rozpocznij swoją podróż do sukcesu online
           </p>
           <button 
             onClick={() => setCurrentPage('form')}
-            className="glassmorphism-button rounded-2xl px-12 py-6 text-2xl font-ki-bold text-white hover:bg-white/10 transition-all duration-300"
+            className="glassmorphism-button rounded-2xl px-12 py-6 text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300"
           >
             WYPEŁNIJ FORMULARZ
           </button>
