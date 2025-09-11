@@ -5,6 +5,7 @@ import { useState } from "react"
 export default function LandingPage() {
   const [clickedNav, setClickedNav] = useState<string | null>(null)
   const [clickedMain, setClickedMain] = useState(false)
+  const [copiedItem, setCopiedItem] = useState<string | null>(null)
 
   const handleNavClick = (item: string) => {
     setClickedNav(item)
@@ -14,6 +15,16 @@ export default function LandingPage() {
   const handleMainClick = () => {
     setClickedMain(true)
     setTimeout(() => setClickedMain(false), 800)
+  }
+
+  const copyToClipboard = async (text: string, item: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopiedItem(item)
+      setTimeout(() => setCopiedItem(null), 2000)
+    } catch (err) {
+      console.error('Failed to copy: ', err)
+    }
   }
 
   return (
@@ -100,8 +111,90 @@ export default function LandingPage() {
             Rozpocznij swoją podróż do sukcesu online
           </p>
           <button className="glassmorphism-button rounded-2xl px-12 py-6 text-2xl font-ki-bold text-white hover:bg-white/10 transition-all duration-300">
-            SKONTAKTUJ SIĘ Z NAMI
+            WYPEŁNIJ FORMULARZ
           </button>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div className="text-center max-w-4xl">
+          <h2 className="text-5xl md:text-7xl font-bold text-white font-ki-bold tracking-wide mb-16">
+            KONTAKT
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Email */}
+            <div className="glassmorphism-button rounded-2xl p-8 text-left">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-ki-bold text-white mb-2">Email</h3>
+                  <p className="text-xl font-inter text-white/80">kontakt@aerodigital.pl</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
+                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                >
+                  {copiedItem === 'email' ? '✓' : '📋'}
+                </button>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="glassmorphism-button rounded-2xl p-8 text-left">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-ki-bold text-white mb-2">Telefon</h3>
+                  <p className="text-xl font-inter text-white/80">510830344</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('510830344', 'phone')}
+                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                >
+                  {copiedItem === 'phone' ? '✓' : '📋'}
+                </button>
+              </div>
+            </div>
+
+            {/* Instagram */}
+            <div className="glassmorphism-button rounded-2xl p-8 text-left">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-ki-bold text-white mb-2">Instagram</h3>
+                  <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
+                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                >
+                  {copiedItem === 'instagram' ? '✓' : '📋'}
+                </button>
+              </div>
+            </div>
+
+            {/* Facebook */}
+            <div className="glassmorphism-button rounded-2xl p-8 text-left">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-ki-bold text-white mb-2">Facebook</h3>
+                  <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard('aerodigital.pl', 'facebook')}
+                  className="text-white hover:text-white/70 transition-colors duration-300 text-2xl"
+                >
+                  {copiedItem === 'facebook' ? '✓' : '📋'}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Hours */}
+          <div className="mt-12">
+            <p className="text-2xl font-inter text-white/80">
+              Czynne całodobowo
+            </p>
+          </div>
         </div>
       </div>
 
