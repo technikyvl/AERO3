@@ -545,10 +545,10 @@ export default function LandingPage() {
             {/* Left side - Text content */}
             <div className="flex-1 text-left w-full lg:w-auto">
               <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8 leading-tight">
-                SKALUJEMY FIRMY ONLINE
+                {translateText('SKALUJEMY FIRMY ONLINE')}
               </h1>
               <p className="text-lg md:text-xl text-white/80 font-inter mb-6 md:mb-8 leading-relaxed">
-                Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.
+                {translateText('Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.')}
               </p>
             </div>
             
