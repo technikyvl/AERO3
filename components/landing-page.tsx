@@ -381,7 +381,7 @@ export default function LandingPage() {
   const ContactPage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
       {/* Logo */}
-      <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
+      <div className="fixed top-16 left-4 z-50 md:top-8 md:left-8">
         <button
           onClick={() => setCurrentPage('home')}
           className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
@@ -500,7 +500,7 @@ export default function LandingPage() {
   const HomePage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
       {/* Logo */}
-      <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
+      <div className="fixed top-16 left-4 z-50 md:top-8 md:left-8">
         <button
           onClick={() => setCurrentPage('home')}
           className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
