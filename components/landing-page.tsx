@@ -21,45 +21,58 @@ export default function LandingPage() {
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
-        {/* Liquid glass background elements */}
-        <div className={`absolute top-10 left-10 w-64 h-64 liquid-glass rounded-full glass-float ${showElements ? 'opacity-30' : 'opacity-0'}`} 
+        {/* Large liquid glass panels */}
+        <div className={`absolute top-0 left-0 w-1/3 h-full liquid-glass rounded-r-3xl glass-float ${showElements ? 'opacity-15' : 'opacity-0'}`} 
              style={{ animationDelay: '0s' }} />
-        <div className={`absolute bottom-20 right-20 w-48 h-48 liquid-glass rounded-full glass-float ${showElements ? 'opacity-20' : 'opacity-0'}`} 
+        <div className={`absolute top-0 right-0 w-1/2 h-2/3 liquid-glass rounded-l-3xl glass-float ${showElements ? 'opacity-10' : 'opacity-0'}`} 
              style={{ animationDelay: '2s' }} />
-        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 liquid-glass rounded-full glass-float ${showElements ? 'opacity-25' : 'opacity-0'}`} 
+        <div className={`absolute bottom-0 left-1/2 w-1/2 h-1/3 liquid-glass rounded-t-3xl glass-float ${showElements ? 'opacity-8' : 'opacity-0'}`} 
              style={{ animationDelay: '4s' }} />
+        
+        {/* Lightning elements */}
+        <div className={`absolute top-1/3 left-1/4 w-1 h-40 lightning-vertical ${showElements ? 'opacity-100' : 'opacity-0'}`} 
+             style={{ animationDelay: '1s' }} />
+        <div className={`absolute top-1/2 right-1/3 w-48 h-1 lightning ${showElements ? 'opacity-100' : 'opacity-0'}`} 
+             style={{ animationDelay: '2.5s' }} />
+        <div className={`absolute bottom-1/3 right-1/4 w-1 h-32 lightning-vertical ${showElements ? 'opacity-100' : 'opacity-0'}`} 
+             style={{ animationDelay: '3.5s' }} />
+        
+        {/* Large metallic panels */}
+        <div className={`absolute top-1/4 right-0 w-64 h-64 metallic-chrome rounded-l-3xl liquid-morph ${showElements ? 'opacity-20' : 'opacity-0'}`} 
+             style={{ animationDelay: '1.5s' }} />
+        <div className={`absolute bottom-0 left-0 w-80 h-40 metallic rounded-tr-3xl liquid-morph ${showElements ? 'opacity-15' : 'opacity-0'}`} 
+             style={{ animationDelay: '3s' }} />
       </div>
 
       {/* Navigation */}
-      <nav className={`relative z-10 flex items-center justify-between p-6 border-b border-gray-800/50 liquid-glass-dark ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'} transition-all duration-1000`}>
-        <div className="text-2xl font-bold font-saira text-gradient">
-          AD
-        </div>
-        <div className="flex space-x-8">
-          <a
-            href="#"
-            className="hover:text-primary transition-all duration-300 font-saira font-medium ios-scale"
-          >
-            Strona Główna
-          </a>
-          <a
-            href="#"
-            className="hover:text-primary transition-all duration-300 font-saira font-medium ios-scale"
-          >
-            Portfolio
-          </a>
-          <a
-            href="#"
-            className="hover:text-primary transition-all duration-300 font-saira font-medium ios-scale"
-          >
-            O Nas
-          </a>
-          <a
-            href="#"
-            className="hover:text-primary transition-all duration-300 font-saira font-medium ios-scale"
-          >
-            Kontakt
-          </a>
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-6 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'} transition-all duration-1000`}>
+        <div className="liquid-glass-dark rounded-full px-8 py-4 backdrop-blur-xl">
+          <div className="flex space-x-12">
+            <a
+              href="#"
+              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
+            >
+              Strona Główna
+            </a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
+            >
+              Portfolio
+            </a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
+            >
+              O Nas
+            </a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
+            >
+              Kontakt
+            </a>
+          </div>
         </div>
       </nav>
 
