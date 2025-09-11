@@ -1,6 +1,20 @@
 "use client"
 
+import { useState } from "react"
+
 export default function LandingPage() {
+  const [clickedNav, setClickedNav] = useState<string | null>(null)
+  const [clickedMain, setClickedMain] = useState(false)
+
+  const handleNavClick = (item: string) => {
+    setClickedNav(item)
+    setTimeout(() => setClickedNav(null), 600)
+  }
+
+  const handleMainClick = () => {
+    setClickedMain(true)
+    setTimeout(() => setClickedMain(false), 800)
+  }
 
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -11,13 +25,15 @@ export default function LandingPage() {
           <div className="flex space-x-20">
             <a
               href="#"
-              className="text-white hover:text-white/60 transition-all duration-300 font-ascender text-lg tracking-widest uppercase text-glass"
+              onClick={() => handleNavClick('strona')}
+              className={`text-white hover:text-white/60 transition-all duration-300 font-ascender text-lg tracking-widest uppercase ${clickedNav === 'strona' ? 'click-glass' : ''}`}
             >
               Strona Główna
             </a>
             <a
               href="#"
-              className="text-white hover:text-white/60 transition-all duration-300 font-ascender text-lg tracking-widest uppercase text-glass"
+              onClick={() => handleNavClick('kontakt')}
+              className={`text-white hover:text-white/60 transition-all duration-300 font-ascender text-lg tracking-widest uppercase ${clickedNav === 'kontakt' ? 'click-glass' : ''}`}
             >
               Kontakt
             </a>
@@ -29,10 +45,12 @@ export default function LandingPage() {
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
         <div className="text-center">
           {/* Main heading with liquid glass effect */}
-          <div className="liquid-glass-dark rounded-3xl p-16 mx-4 backdrop-blur-xl">
+          <div 
+            className="liquid-glass-dark rounded-3xl p-16 mx-4 backdrop-blur-xl cursor-pointer"
+            onClick={handleMainClick}
+          >
             <h1
-              className="text-8xl md:text-9xl font-bold text-white tracking-widest text-glass"
-              style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+              className={`text-8xl md:text-9xl font-bold text-white tracking-widest font-dm-sans unselectable ${clickedMain ? 'click-metallic' : ''}`}
             >
               AERODIGITAL
             </h1>
