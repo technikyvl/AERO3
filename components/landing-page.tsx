@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function LandingPage() {
   const [clickedNav, setClickedNav] = useState<string | null>(null)
@@ -18,6 +18,7 @@ export default function LandingPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [typingComplete, setTypingComplete] = useState(false)
 
   const handleNavClick = (item: string) => {
     setClickedNav(item)
@@ -75,7 +76,9 @@ export default function LandingPage() {
 
   const nextQuestion = () => {
     if (currentQuestion < 5) {
+      setTypingComplete(false)
       setCurrentQuestion(currentQuestion + 1)
+      setTimeout(() => setTypingComplete(true), 100)
     } else {
       handleFormSubmit()
     }
@@ -83,7 +86,9 @@ export default function LandingPage() {
 
   const prevQuestion = () => {
     if (currentQuestion > 0) {
+      setTypingComplete(false)
       setCurrentQuestion(currentQuestion - 1)
+      setTimeout(() => setTypingComplete(true), 100)
     }
   }
 
@@ -98,11 +103,19 @@ export default function LandingPage() {
       budget: ''
     })
     setIsSubmitted(false)
+    setTypingComplete(false)
     setCurrentPage('home')
+    setTimeout(() => setTypingComplete(true), 100)
   }
 
   // Form Page Component
   const FormPage = () => {
+    useEffect(() => {
+      setTypingComplete(false)
+      const timer = setTimeout(() => setTypingComplete(true), 100)
+      return () => clearTimeout(timer)
+    }, [currentQuestion])
+
     const questions = [
       {
         id: 'name',
@@ -216,7 +229,7 @@ export default function LandingPage() {
             </h1>
             
             <div className="liquid-glass-dark rounded-2xl p-8 mb-8 smooth-transition">
-              <h2 className="text-3xl font-inter text-white mb-8 typing-animation">
+              <h2 className={`text-3xl font-inter text-white mb-8 ${typingComplete ? 'typing-complete' : 'typing-animation'}`}>
                 {currentQ.question}
               </h2>
               
