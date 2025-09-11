@@ -200,24 +200,24 @@ export default function LandingPage() {
     return (
       <div className="min-h-screen bg-black text-white relative overflow-y-auto">
         {/* Logo */}
-        <div className="fixed top-8 left-8 z-50">
+        <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
           <button
             onClick={() => setCurrentPage('home')}
-            className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+            className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
           >
             <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
           </button>
         </div>
 
         {/* Navigation */}
-        <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
-          <div className="liquid-glass-dark rounded-full px-8 py-4">
-            <div className="flex space-x-8">
+        <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:transform md:-translate-x-1/2">
+          <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
+            <div className="flex space-x-4 md:space-x-8">
               {['Strona Główna', 'Kontakt'].map((item) => (
                 <button
                   key={item}
                   onClick={() => handleNavClick(item)}
-                  className={`font-ascender font-light text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
+                  className={`font-ascender font-light text-xs md:text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
                     clickedNav === item ? 'click-glass' : ''
                   } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
                 >
@@ -229,19 +229,19 @@ export default function LandingPage() {
         </nav>
 
         {/* Form Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
+        <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
           <div className="text-center max-w-2xl w-full">
-            <h1 className="text-5xl md:text-7xl font-bold text-white font-ascender tracking-wide mb-16 smooth-transition">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16 smooth-transition">
               FORMULARZ
             </h1>
             
-            <div className="liquid-glass-dark rounded-2xl p-8 mb-8 smooth-transition">
-              <h2 className="text-3xl font-ascender text-white mb-8">
+            <div className="liquid-glass-dark rounded-2xl p-4 md:p-8 mb-6 md:mb-8 smooth-transition">
+              <h2 className="text-xl md:text-3xl font-ascender text-white mb-6 md:mb-8">
                 {currentQ.question}
               </h2>
               
               {currentQ.type === 'select' ? (
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   {currentQ.options?.map((option) => (
                     <button
                       key={option}
@@ -249,7 +249,7 @@ export default function LandingPage() {
                         setFormData({...formData, [currentQ.id]: option})
                         setTimeout(nextQuestion, 500)
                       }}
-                      className={`w-full metallic-button rounded-xl p-4 text-xl font-ascender text-white smooth-transition ${
+                      className={`w-full metallic-button rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white smooth-transition ${
                         formData[currentQ.id as keyof typeof formData] === option ? 'bg-white/20' : ''
                       }`}
                     >
@@ -258,20 +258,20 @@ export default function LandingPage() {
                   ))}
                 </div>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <input
                     type="text"
                     value={formData[currentQ.id as keyof typeof formData]}
                     onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
                     placeholder={currentQ.placeholder}
-                    className="w-full liquid-glass-dark rounded-xl p-4 text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
+                    className="w-full liquid-glass-dark rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
                     autoFocus
                   />
-                  <div className="flex gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                     {currentQuestion > 0 && (
                       <button
                         onClick={prevQuestion}
-                        className="metallic-button rounded-xl px-8 py-3 text-lg font-ascender text-white smooth-transition"
+                        className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition w-full sm:w-auto"
                       >
                         WSTECZ
                       </button>
@@ -279,7 +279,7 @@ export default function LandingPage() {
                     <button
                       onClick={nextQuestion}
                       disabled={!formData[currentQ.id as keyof typeof formData]}
-                      className="metallic-button rounded-xl px-8 py-3 text-lg font-ascender text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
                     >
                       {isSubmitting ? 'WYSYŁANIE...' : currentQuestion === 5 ? 'WYŚLIJ' : 'DALEJ'}
                     </button>
@@ -354,15 +354,15 @@ export default function LandingPage() {
             </div>
 
             {/* Phone */}
-            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-center justify-between">
+            <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ascender mb-2 text-white">Telefon</h3>
-                  <p className="text-xl font-inter text-white/80">510830344</p>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Telefon</h3>
+                  <p className="text-lg md:text-xl font-inter text-white/80">510830344</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('510830344', 'phone')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
                   {copiedItem === 'phone' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
@@ -370,15 +370,15 @@ export default function LandingPage() {
             </div>
 
             {/* Instagram */}
-            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-center justify-between">
+            <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ascender mb-2 text-white">Instagram</h3>
-                  <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Instagram</h3>
+                  <p className="text-lg md:text-xl font-inter text-white/80">aerodigital.pl</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
                   {copiedItem === 'instagram' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
@@ -386,15 +386,15 @@ export default function LandingPage() {
             </div>
 
             {/* Facebook */}
-            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-center justify-between">
+            <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ascender mb-2 text-white">Facebook</h3>
-                  <p className="text-xl font-inter text-white/80">Aero Digital</p>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Facebook</h3>
+                  <p className="text-lg md:text-xl font-inter text-white/80">Aero Digital</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('Aero Digital', 'facebook')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
                   {copiedItem === 'facebook' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
