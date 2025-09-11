@@ -502,21 +502,21 @@ export default function LandingPage() {
           >
             WYPEŁNIJ FORMULARZ
           </button>
-        </div>
-      </div>
-
-      {/* Back to Top Arrow */}
-      <div className="relative z-10 flex justify-center pb-8">
-        <div 
-          className="bounce-arrow-up text-white text-4xl"
-          onClick={() => {
-            const heroSection = document.querySelector('#hero-section') || document.querySelector('.min-h-screen');
-            if (heroSection) {
-              heroSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
-        >
-          ↑
+          
+          {/* Back to Top Arrow */}
+          <div className="flex justify-center mt-12">
+            <div 
+              className="bounce-arrow-up text-white text-4xl"
+              onClick={() => {
+                const heroSection = document.querySelector('#hero-section') || document.querySelector('.min-h-screen');
+                if (heroSection) {
+                  heroSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              ↑
+            </div>
+          </div>
         </div>
       </div>
     </div>
