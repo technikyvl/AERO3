@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import FloatingElements from "./floating-elements"
 
 export default function LandingPage() {
   const [showContent, setShowContent] = useState(false)
@@ -18,57 +17,30 @@ export default function LandingPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0">
-        {/* Large liquid glass panels */}
-        <div className={`absolute top-0 left-0 w-1/3 h-full liquid-glass rounded-r-3xl glass-float ${showElements ? 'opacity-15' : 'opacity-0'}`} 
-             style={{ animationDelay: '0s' }} />
-        <div className={`absolute top-0 right-0 w-1/2 h-2/3 liquid-glass rounded-l-3xl glass-float ${showElements ? 'opacity-10' : 'opacity-0'}`} 
-             style={{ animationDelay: '2s' }} />
-        <div className={`absolute bottom-0 left-1/2 w-1/2 h-1/3 liquid-glass rounded-t-3xl glass-float ${showElements ? 'opacity-8' : 'opacity-0'}`} 
-             style={{ animationDelay: '4s' }} />
-        
-        {/* Lightning elements */}
-        <div className={`absolute top-1/3 left-1/4 w-1 h-40 lightning-vertical ${showElements ? 'opacity-100' : 'opacity-0'}`} 
-             style={{ animationDelay: '1s' }} />
-        <div className={`absolute top-1/2 right-1/3 w-48 h-1 lightning ${showElements ? 'opacity-100' : 'opacity-0'}`} 
-             style={{ animationDelay: '2.5s' }} />
-        <div className={`absolute bottom-1/3 right-1/4 w-1 h-32 lightning-vertical ${showElements ? 'opacity-100' : 'opacity-0'}`} 
-             style={{ animationDelay: '3.5s' }} />
-        
-        {/* Large metallic panels */}
-        <div className={`absolute top-1/4 right-0 w-64 h-64 metallic-chrome rounded-l-3xl liquid-morph ${showElements ? 'opacity-20' : 'opacity-0'}`} 
-             style={{ animationDelay: '1.5s' }} />
-        <div className={`absolute bottom-0 left-0 w-80 h-40 metallic rounded-tr-3xl liquid-morph ${showElements ? 'opacity-15' : 'opacity-0'}`} 
-             style={{ animationDelay: '3s' }} />
-      </div>
+    <div className="min-h-screen bg-black text-white relative">
 
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-6 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'} transition-all duration-1000`}>
-        <div className="liquid-glass-dark rounded-full px-8 py-4 backdrop-blur-xl">
-          <div className="flex space-x-12">
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-8 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'} transition-all duration-1000`}>
+        <div className="liquid-glass-dark rounded-full px-12 py-6 backdrop-blur-xl">
+          <div className="flex space-x-16">
             <a
               href="#"
-              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
+              className="text-white hover:text-white/70 transition-all duration-500 font-saira font-bold text-lg tracking-widest uppercase ios-scale"
+              style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
               Strona Główna
             </a>
             <a
               href="#"
-              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
+              className="text-white hover:text-white/70 transition-all duration-500 font-saira font-bold text-lg tracking-widest uppercase ios-scale"
+              style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
               Portfolio
             </a>
             <a
               href="#"
-              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
-            >
-              O Nas
-            </a>
-            <a
-              href="#"
-              className="text-white/80 hover:text-white transition-all duration-300 font-saira font-light text-sm tracking-wider uppercase ios-scale"
+              className="text-white hover:text-white/70 transition-all duration-500 font-saira font-bold text-lg tracking-widest uppercase ios-scale"
+              style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
               Kontakt
             </a>
@@ -114,24 +86,54 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Floating metallic elements */}
+      {/* Enhanced liquid glass and metallic animations */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
+        {/* Liquid glass orbs with enhanced animations */}
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className={`absolute w-4 h-4 metallic rounded-full liquid-morph ${showElements ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute w-8 h-8 liquid-glass rounded-full glass-float liquid-morph ${showElements ? 'opacity-100' : 'opacity-0'}`}
             style={{
-              left: `${10 + i * 12}%`,
-              top: `${20 + (i % 3) * 25}%`,
-              animationDelay: `${i * 0.5}s`,
-              transitionDelay: `${2 + i * 0.2}s`
+              left: `${15 + i * 15}%`,
+              top: `${20 + (i % 2) * 30}%`,
+              animationDelay: `${i * 0.8}s`,
+              transitionDelay: `${1 + i * 0.3}s`
+            }}
+          />
+        ))}
+        
+        {/* Metallic lightning elements */}
+        {[...Array(4)].map((_, i) => (
+          <div
+            key={`lightning-${i}`}
+            className={`absolute lightning-vertical ${showElements ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              left: `${20 + i * 20}%`,
+              top: `${10 + (i % 2) * 40}%`,
+              width: '2px',
+              height: '60px',
+              animationDelay: `${i * 1.2}s`,
+              transitionDelay: `${1.5 + i * 0.4}s`
+            }}
+          />
+        ))}
+        
+        {/* Horizontal lightning elements */}
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={`h-lightning-${i}`}
+            className={`absolute lightning ${showElements ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              left: `${10 + i * 30}%`,
+              top: `${30 + i * 20}%`,
+              width: '80px',
+              height: '2px',
+              animationDelay: `${i * 1.5}s`,
+              transitionDelay: `${2 + i * 0.5}s`
             }}
           />
         ))}
       </div>
-
-      {/* Global floating elements */}
-      <FloatingElements />
     </div>
   )
 }

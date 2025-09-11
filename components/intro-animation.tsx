@@ -25,30 +25,54 @@ export default function IntroAnimation() {
   }, [])
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-black overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        {/* Large liquid glass panels */}
-        <div className={`absolute top-0 left-0 w-1/2 h-full liquid-glass rounded-r-3xl glass-float ${showLiquidGlass ? 'opacity-20' : 'opacity-0'}`} 
-             style={{ animationDelay: '0s' }} />
-        <div className={`absolute top-0 right-0 w-1/3 h-2/3 liquid-glass rounded-l-3xl glass-float ${showLiquidGlass ? 'opacity-15' : 'opacity-0'}`} 
-             style={{ animationDelay: '2s' }} />
-        <div className={`absolute bottom-0 left-1/3 w-1/2 h-1/2 liquid-glass rounded-t-3xl glass-float ${showLiquidGlass ? 'opacity-10' : 'opacity-0'}`} 
-             style={{ animationDelay: '4s' }} />
+    <div className="relative flex items-center justify-center min-h-screen bg-black">
+      {/* Enhanced liquid glass and metallic animations */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Liquid glass orbs with enhanced animations */}
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className={`absolute w-6 h-6 liquid-glass rounded-full glass-float liquid-morph ${showLiquidGlass ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              left: `${10 + i * 12}%`,
+              top: `${15 + (i % 3) * 25}%`,
+              animationDelay: `${i * 0.6}s`,
+              transitionDelay: `${0.5 + i * 0.2}s`
+            }}
+          />
+        ))}
         
-        {/* Lightning elements */}
-        <div className={`absolute top-1/4 left-1/2 w-1 h-32 lightning-vertical ${showMetallic ? 'opacity-100' : 'opacity-0'}`} 
-             style={{ animationDelay: '1s' }} />
-        <div className={`absolute top-1/2 right-1/4 w-32 h-1 lightning ${showMetallic ? 'opacity-100' : 'opacity-0'}`} 
-             style={{ animationDelay: '2.5s' }} />
-        <div className={`absolute bottom-1/4 left-1/4 w-1 h-24 lightning-vertical ${showMetallic ? 'opacity-100' : 'opacity-0'}`} 
-             style={{ animationDelay: '3.5s' }} />
+        {/* Metallic lightning elements */}
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={`lightning-${i}`}
+            className={`absolute lightning-vertical ${showMetallic ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              left: `${15 + i * 15}%`,
+              top: `${10 + (i % 2) * 35}%`,
+              width: '1px',
+              height: '40px',
+              animationDelay: `${i * 0.8}s`,
+              transitionDelay: `${1 + i * 0.3}s`
+            }}
+          />
+        ))}
         
-        {/* Large metallic panels */}
-        <div className={`absolute top-1/4 right-0 w-48 h-48 metallic-chrome rounded-l-3xl liquid-morph ${showMetallic ? 'opacity-30' : 'opacity-0'}`} 
-             style={{ animationDelay: '1s' }} />
-        <div className={`absolute bottom-0 left-0 w-64 h-32 metallic rounded-tr-3xl liquid-morph ${showMetallic ? 'opacity-25' : 'opacity-0'}`} 
-             style={{ animationDelay: '2s' }} />
+        {/* Horizontal lightning elements */}
+        {[...Array(4)].map((_, i) => (
+          <div
+            key={`h-lightning-${i}`}
+            className={`absolute lightning ${showMetallic ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              left: `${20 + i * 20}%`,
+              top: `${25 + i * 15}%`,
+              width: '60px',
+              height: '1px',
+              animationDelay: `${i * 1.2}s`,
+              transitionDelay: `${1.5 + i * 0.4}s`
+            }}
+          />
+        ))}
       </div>
 
       {/* Main content */}
