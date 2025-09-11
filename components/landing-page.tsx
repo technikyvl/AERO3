@@ -504,7 +504,7 @@ export default function LandingPage() {
           </button>
           
           {/* Back to Top Arrow */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-6">
             <div 
               className="bounce-arrow-up text-white text-4xl"
               onClick={() => {
