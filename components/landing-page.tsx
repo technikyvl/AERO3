@@ -105,6 +105,18 @@ export default function LandingPage() {
   const FormPage = () => {
     const questions = [
       {
+        id: 'name',
+        question: 'Jak masz na imię?',
+        type: 'text',
+        placeholder: 'Wprowadź swoje imię'
+      },
+      {
+        id: 'email',
+        question: 'Jaki jest Twój adres email?',
+        type: 'text',
+        placeholder: 'Wprowadź swój email'
+      },
+      {
         id: 'serviceType',
         question: 'Jaki rodzaj usługi cię interesuje?',
         type: 'select',
