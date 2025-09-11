@@ -608,21 +608,6 @@ export default function LandingPage() {
                 {translateText('Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.')}
               </p>
             </div>
-              <div className="glassmorphism-button rounded-2xl p-3 md:p-4 w-full max-w-[300px] h-[300px] sm:max-w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex items-center justify-center mx-auto lg:mx-0">
-                <img 
-                  src="/kampania.png" 
-                  alt="Kampanie Reklamowe" 
-                  className="w-full h-full object-contain rounded-xl"
-                />
-              </div>
-              <div className="glassmorphism-button rounded-2xl p-3 md:p-4 w-full max-w-[300px] h-[300px] sm:max-w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex items-center justify-center mx-auto lg:mx-0">
-                <img 
-                  src="/stat.png" 
-                  alt="Statystyki" 
-                  className="w-full h-full object-contain rounded-xl"
-                />
-              </div>
-            </div>
           </div>
 
           {/* Animated arrow */}
