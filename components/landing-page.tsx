@@ -301,24 +301,24 @@ export default function LandingPage() {
   const ContactPage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
       {/* Logo */}
-      <div className="fixed top-8 left-8 z-50">
+      <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
         <button
           onClick={() => setCurrentPage('home')}
-          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+          className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
         >
           <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
         </button>
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="liquid-glass-dark rounded-full px-8 py-4">
-          <div className="flex space-x-8">
+      <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:transform md:-translate-x-1/2">
+        <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
+          <div className="flex space-x-4 md:space-x-8">
             {['Strona Główna', 'Kontakt'].map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`font-ascender font-light text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
+                className={`font-ascender font-light text-xs md:text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
                   clickedNav === item ? 'click-glass' : ''
                 } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
               >
@@ -330,23 +330,23 @@ export default function LandingPage() {
       </nav>
 
       {/* Contact Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
         <div className="text-center max-w-2xl w-full">
-          <h1 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-16">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16">
             KONTAKT
           </h1>
           
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {/* Email */}
-            <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-center justify-between">
+            <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ascender mb-2 text-white">Email</h3>
-                  <p className="text-xl font-inter text-white/80">kontakt@aerodigital.pl</p>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Email</h3>
+                  <p className="text-lg md:text-xl font-inter text-white/80 break-all">kontakt@aerodigital.pl</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
                   {copiedItem === 'email' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
