@@ -27,7 +27,7 @@ export default function LandingPage() {
     'Kontakt': 'Contact',
     
     // Hero Section
-    'SKALUJEMY FIRMY ONLINE': 'SCALE COMPANIES ONLINE',
+    'SKALUJEMY FIRMY ONLINE': 'WE SCALE COMPANIES ONLINE',
     'Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.': 'Marketing strategies that reach people, deliver concrete results and help scale your business.',
     
     // Apply Section
@@ -64,7 +64,14 @@ export default function LandingPage() {
     // Success Section
     'DZIĘKUJEMY!': 'THANK YOU!',
     'To wszystko. Skontaktujemy się z tobą wkrótce.': 'That\'s all. We will contact you soon.',
-    'WRÓĆ DO STRONY GŁÓWNEJ': 'BACK TO HOME PAGE'
+    'WRÓĆ DO STRONY GŁÓWNEJ': 'BACK TO HOME PAGE',
+    
+    // Form Placeholders
+    'Wprowadź swoje imię': 'Enter your name',
+    'Wprowadź swój email': 'Enter your email',
+    'Wprowadź numer telefonu': 'Enter phone number',
+    'Wprowadź URL strony/Instagrama': 'Enter website/Instagram URL',
+    'Wprowadź budżet': 'Enter budget'
   }
 
   const translateText = (text: string) => {
@@ -336,7 +343,7 @@ export default function LandingPage() {
                     type="text"
                     value={formData[currentQ.id as keyof typeof formData]}
                     onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
-                    placeholder={currentQ.placeholder}
+                    placeholder={translateText(currentQ.placeholder || '')}
                     className="w-full liquid-glass-dark rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
                     autoFocus
                   />
