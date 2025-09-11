@@ -145,7 +145,7 @@ export default function LandingPage() {
     const currentQ = questions[currentQuestion]
 
     if (isSubmitted) {
-      return (
+  return (
         <div className="min-h-screen bg-black text-white relative overflow-y-auto">
           {/* Logo */}
           <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
@@ -439,7 +439,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
+      <div id="hero-section" className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
         <div className="text-center max-w-6xl w-full">
           {/* Hero content - Layout like the image */}
           <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12 mb-12 md:mb-16">
@@ -502,6 +502,21 @@ export default function LandingPage() {
           >
             WYPEŁNIJ FORMULARZ
           </button>
+        </div>
+      </div>
+
+      {/* Back to Top Arrow */}
+      <div className="relative z-10 flex justify-center pb-8">
+        <div 
+          className="bounce-arrow-up text-white text-4xl"
+          onClick={() => {
+            const heroSection = document.querySelector('#hero-section') || document.querySelector('.min-h-screen');
+            if (heroSection) {
+              heroSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >
+          ↑
         </div>
       </div>
     </div>

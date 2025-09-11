@@ -361,6 +361,18 @@
   }
 }
 
+@keyframes bounce-arrow-up {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+}
+
 /* Animation Classes */
 .glitch-animation {
   animation: glitch 0.3s infinite;
@@ -481,6 +493,16 @@
 
 .bounce-arrow:hover {
   transform: translateY(-5px);
+}
+
+.bounce-arrow-up {
+  animation: bounce-arrow-up 2s infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bounce-arrow-up:hover {
+  transform: translateY(5px);
 }
 
 .text-gradient {
