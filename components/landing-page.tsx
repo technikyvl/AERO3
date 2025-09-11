@@ -81,14 +81,14 @@ export default function LandingPage() {
         <div className="text-center max-w-6xl">
           {/* Main heading with enhanced effects */}
           <h1
-            className={`text-6xl md:text-8xl font-bold text-white tracking-wider font-saira text-reveal ${showContent ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transitionDelay: '0.5s' }}
+            className={`text-6xl md:text-8xl font-bold text-white tracking-wider text-reveal ${showContent ? 'opacity-100' : 'opacity-0'}`}
+            style={{ fontFamily: "Helvetica, Arial, sans-serif", transitionDelay: '0.5s' }}
           >
             AERODIGITAL
           </h1>
           
           {/* Subtitle */}
-          <p className={`text-xl md:text-2xl text-gray-300 mt-8 font-saira font-light ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-1000`}
+          <p className={`text-xl md:text-2xl text-gray-400 mt-8 font-saira font-light ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-1000`}
              style={{ transitionDelay: '1s' }}>
             Digital Agency Specializing in Cutting-Edge Web Experiences
           </p>
@@ -104,10 +104,10 @@ export default function LandingPage() {
           {/* CTA Buttons */}
           <div className={`flex flex-col sm:flex-row gap-4 justify-center mt-12 ${showElements ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-1000`}
                style={{ transitionDelay: '2s' }}>
-            <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-black font-saira font-semibold rounded-full ios-scale liquid-glass hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+            <button className="px-8 py-4 bg-white text-black font-saira font-medium rounded-full ios-scale liquid-glass hover:bg-gray-100 transition-all duration-300">
               Zobacz Portfolio
             </button>
-            <button className="px-8 py-4 border border-white/20 text-white font-saira font-semibold rounded-full ios-scale liquid-glass-dark hover:border-primary hover:text-primary transition-all duration-300">
+            <button className="px-8 py-4 border border-white/30 text-white font-saira font-medium rounded-full ios-scale liquid-glass-dark hover:border-white hover:bg-white/5 transition-all duration-300">
               Skontaktuj się
             </button>
           </div>
