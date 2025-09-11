@@ -249,16 +249,16 @@ export default function LandingPage() {
           <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
             <div className="text-center max-w-2xl">
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8">
-                DZIĘKUJEMY!
+                {translateText('DZIĘKUJEMY!')}
               </h1>
               <p className="text-lg md:text-2xl text-white/80 font-inter mb-8 md:mb-12">
-                To wszystko. Skontaktujemy się z tobą wkrótce.
+                {translateText('To wszystko. Skontaktujemy się z tobą wkrótce.')}
               </p>
               <button
                 onClick={resetForm}
                 className="liquid-glass-dark rounded-2xl px-8 py-4 md:px-12 md:py-6 text-lg md:text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300 w-full max-w-md mx-auto"
               >
-                WRÓĆ DO STRONY GŁÓWNEJ
+                {translateText('WRÓĆ DO STRONY GŁÓWNEJ')}
               </button>
             </div>
           </div>
