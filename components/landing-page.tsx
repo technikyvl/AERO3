@@ -454,19 +454,19 @@ export default function LandingPage() {
             </div>
             
             {/* Right side - Images */}
-            <div className="flex-1 flex gap-6 justify-center lg:justify-end">
-              <div className="glassmorphism-button rounded-2xl p-4 w-96 h-96 flex items-center justify-center">
+            <div className="flex-1 flex flex-col lg:flex-row gap-8 justify-center lg:justify-end">
+              <div className="glassmorphism-button rounded-2xl p-4 w-full max-w-[500px] h-[350px] lg:w-[500px] flex items-center justify-center">
                 <img 
                   src="/kampania.png" 
                   alt="Kampanie Reklamowe" 
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-contain rounded-xl"
                 />
               </div>
-              <div className="glassmorphism-button rounded-2xl p-4 w-96 h-96 flex items-center justify-center">
+              <div className="glassmorphism-button rounded-2xl p-4 w-full max-w-[500px] h-[350px] lg:w-[500px] flex items-center justify-center">
                 <img 
                   src="/stat.png" 
                   alt="Statystyki" 
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-contain rounded-xl"
                 />
               </div>
             </div>
