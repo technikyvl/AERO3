@@ -17,7 +17,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
+    <div className="min-h-screen bg-black text-white relative overflow-y-auto">
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-8">
@@ -41,9 +41,34 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Main content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
-        <div className="text-center">
+      {/* Hero Section */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-32">
+        <div className="text-center max-w-6xl">
+          {/* Hero content */}
+          <div className="mb-16">
+            <h1 className="text-4xl md:text-6xl font-bold text-white font-ki-bold tracking-wide mb-8">
+              SKALUJEMY FIRMY ONLINE
+            </h1>
+            
+            {/* Images side by side */}
+            <div className="flex justify-center items-center gap-8 mb-12">
+              <div className="glassmorphism-button rounded-2xl p-6 max-w-xs">
+                <img 
+                  src="/kampania.png" 
+                  alt="Kampanie Reklamowe" 
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+              <div className="glassmorphism-button rounded-2xl p-6 max-w-xs">
+                <img 
+                  src="/stat.png" 
+                  alt="Statystyki" 
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
           {/* Service buttons */}
           <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
             {/* Kampanie Reklamowe Button */}
