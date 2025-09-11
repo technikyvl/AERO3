@@ -269,7 +269,7 @@ export default function LandingPage() {
     }
 
     return (
-      <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+      <div className="h-screen bg-black text-white relative flex flex-col">
         {/* Logo - Desktop only */}
         <div className="hidden md:block fixed top-8 left-8 z-50">
           <button
@@ -394,7 +394,6 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
-  )
   }
 
   // Contact Page Component
