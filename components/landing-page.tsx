@@ -302,7 +302,7 @@ export default function LandingPage() {
       {/* Contact Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
         <div className="text-center max-w-2xl w-full">
-          <h1 className="text-6xl md:text-8xl font-bold text-white font-ki-bold tracking-wide mb-16">
+          <h1 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-16">
             KONTAKT
           </h1>
           
