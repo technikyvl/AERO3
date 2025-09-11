@@ -204,7 +204,7 @@ export default function LandingPage() {
     const currentQ = questions[currentQuestion]
 
     if (isSubmitted) {
-  return (
+      return (
         <div className="min-h-screen bg-black text-white relative overflow-y-auto">
           {/* Logo */}
           <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
@@ -216,8 +216,18 @@ export default function LandingPage() {
             </button>
           </div>
 
+          {/* Translation Button */}
+          <div className="fixed top-4 right-4 z-50 md:top-8 md:right-8">
+            <button
+              onClick={() => setIsEnglish(!isEnglish)}
+              className="liquid-glass-dark rounded-full px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-ascender text-white hover:bg-white/10 transition-all duration-300 ios-scale"
+            >
+              {isEnglish ? 'PL' : 'EN'}
+            </button>
+          </div>
+
           {/* Navigation */}
-          <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
+          <nav className="fixed top-16 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
             <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
               <div className="flex space-x-4 md:space-x-8">
                 {['Strona Główna', 'Kontakt'].map((item) => (
@@ -228,7 +238,7 @@ export default function LandingPage() {
                       clickedNav === item ? 'click-glass' : ''
                     } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
                   >
-                    {item}
+                    {translateText(item)}
                   </button>
                 ))}
               </div>
@@ -268,8 +278,18 @@ export default function LandingPage() {
           </button>
         </div>
 
+        {/* Translation Button */}
+        <div className="fixed top-4 right-4 z-50 md:top-8 md:right-8">
+          <button
+            onClick={() => setIsEnglish(!isEnglish)}
+            className="liquid-glass-dark rounded-full px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-ascender text-white hover:bg-white/10 transition-all duration-300 ios-scale"
+          >
+            {isEnglish ? 'PL' : 'EN'}
+          </button>
+        </div>
+
         {/* Navigation */}
-        <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
+        <nav className="fixed top-16 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
           <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
             <div className="flex space-x-4 md:space-x-8">
               {['Strona Główna', 'Kontakt'].map((item) => (
@@ -280,7 +300,7 @@ export default function LandingPage() {
                     clickedNav === item ? 'click-glass' : ''
                   } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
                 >
-                  {item}
+                  {translateText(item)}
                 </button>
               ))}
             </div>
@@ -369,8 +389,18 @@ export default function LandingPage() {
         </button>
       </div>
 
+      {/* Translation Button */}
+      <div className="fixed top-4 right-4 z-50 md:top-8 md:right-8">
+        <button
+          onClick={() => setIsEnglish(!isEnglish)}
+          className="liquid-glass-dark rounded-full px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-ascender text-white hover:bg-white/10 transition-all duration-300 ios-scale"
+        >
+          {isEnglish ? 'PL' : 'EN'}
+        </button>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
+      <nav className="fixed top-16 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
         <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
           <div className="flex space-x-4 md:space-x-8">
             {['Strona Główna', 'Kontakt'].map((item) => (
@@ -381,7 +411,7 @@ export default function LandingPage() {
                   clickedNav === item ? 'click-glass' : ''
                 } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
               >
-                {item}
+                {translateText(item)}
               </button>
             ))}
           </div>
@@ -478,8 +508,18 @@ export default function LandingPage() {
         </button>
       </div>
 
+      {/* Translation Button */}
+      <div className="fixed top-4 right-4 z-50 md:top-8 md:right-8">
+        <button
+          onClick={() => setIsEnglish(!isEnglish)}
+          className="liquid-glass-dark rounded-full px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-ascender text-white hover:bg-white/10 transition-all duration-300 ios-scale"
+        >
+          {isEnglish ? 'PL' : 'EN'}
+        </button>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
+      <nav className="fixed top-16 right-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
         <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
           <div className="flex space-x-4 md:space-x-8">
             {['Strona Główna', 'Kontakt'].map((item) => (
@@ -490,7 +530,7 @@ export default function LandingPage() {
                   clickedNav === item ? 'click-glass' : ''
                 } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
               >
-                {item}
+                {translateText(item)}
               </button>
             ))}
           </div>
