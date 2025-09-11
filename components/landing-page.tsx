@@ -204,7 +204,7 @@ export default function LandingPage() {
     const currentQ = questions[currentQuestion]
 
     if (isSubmitted) {
-      return (
+  return (
         <div className="min-h-screen bg-black text-white relative overflow-y-auto">
           {/* Logo */}
           <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
@@ -422,7 +422,7 @@ export default function LandingPage() {
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
         <div className="text-center max-w-2xl w-full">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16">
-            KONTAKT
+            {translateText('KONTAKT')}
           </h1>
           
           <div className="space-y-4 md:space-y-6">
@@ -430,14 +430,14 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="text-left">
-                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">Email</h3>
+                  <h3 className="text-xl md:text-2xl font-ascender mb-2 text-white">{translateText('Email')}</h3>
                   <p className="text-lg md:text-xl font-inter text-white/80 break-all">kontakt@aerodigital.pl</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
                   className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
-                  {copiedItem === 'email' ? 'SKOPIOWANO' : 'KOPIUJ'}
+                  {copiedItem === 'email' ? translateText('SKOPIOWANO') : translateText('KOPIUJ')}
                 </button>
               </div>
             </div>
@@ -590,16 +590,16 @@ export default function LandingPage() {
       <div id="apply-section" className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6">
         <div className="text-center max-w-4xl">
           <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8">
-            ZAAPLIKUJ TERAZ
+            {translateText('ZAAPLIKUJ TERAZ')}
           </h2>
           <p className="text-lg md:text-2xl text-white/80 font-inter mb-8 md:mb-12">
-            Rozpocznij swoją podróż do sukcesu online
+            {translateText('Rozpocznij swoją podróż do sukcesu online')}
           </p>
           <button 
             onClick={() => setCurrentPage('form')}
             className="glassmorphism-button rounded-2xl px-8 py-4 md:px-12 md:py-6 text-lg md:text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300 w-full max-w-md mx-auto"
           >
-            WYPEŁNIJ FORMULARZ
+            {translateText('WYPEŁNIJ FORMULARZ')}
           </button>
           
           {/* Back to Top Arrow */}
