@@ -352,7 +352,7 @@ export default function LandingPage() {
                         onClick={prevQuestion}
                         className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition w-full sm:w-auto"
                       >
-                        WSTECZ
+                        {translateText('WSTECZ')}
                       </button>
                     )}
                     <button
@@ -360,7 +360,7 @@ export default function LandingPage() {
                       disabled={!formData[currentQ.id as keyof typeof formData]}
                       className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
                     >
-                      {isSubmitting ? 'WYSYŁANIE...' : currentQuestion === 5 ? 'WYŚLIJ' : 'DALEJ'}
+                      {isSubmitting ? translateText('WYSYŁANIE...') : currentQuestion === 5 ? translateText('WYŚLIJ') : translateText('DALEJ')}
                     </button>
                   </div>
                 </div>
@@ -368,7 +368,7 @@ export default function LandingPage() {
             </div>
             
             <div className="text-white/60 font-inter smooth-transition">
-              Pytanie {currentQuestion + 1} z {questions.length}
+              {translateText('Pytanie')} {currentQuestion + 1} {translateText('z')} {questions.length}
             </div>
           </div>
         </div>
