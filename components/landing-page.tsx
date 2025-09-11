@@ -52,18 +52,18 @@ export default function LandingPage() {
             
             {/* Images side by side */}
             <div className="flex justify-center items-center gap-8 mb-12">
-              <div className="glassmorphism-button rounded-2xl p-6 max-w-xs">
+              <div className="glassmorphism-button rounded-2xl p-4 w-80 h-80 flex items-center justify-center">
                 <img 
                   src="/kampania.png" 
                   alt="Kampanie Reklamowe" 
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <div className="glassmorphism-button rounded-2xl p-6 max-w-xs">
+              <div className="glassmorphism-button rounded-2xl p-4 w-80 h-80 flex items-center justify-center">
                 <img 
                   src="/stat.png" 
                   alt="Statystyki" 
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               </div>
             </div>
