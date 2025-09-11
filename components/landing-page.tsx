@@ -145,7 +145,7 @@ export default function LandingPage() {
     const currentQ = questions[currentQuestion]
 
     if (isSubmitted) {
-      return (
+  return (
         <div className="min-h-screen bg-black text-white relative overflow-y-auto">
           {/* Logo */}
           <div className="fixed top-8 left-8 z-50">
@@ -182,7 +182,7 @@ export default function LandingPage() {
               <h1 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-8">
                 DZIĘKUJEMY!
               </h1>
-              <p className="text-2xl text-white/80 font-ascender mb-12">
+              <p className="text-2xl text-white/80 font-inter mb-12">
                 To wszystko. Skontaktujemy się z tobą wkrótce.
               </p>
               <button
@@ -288,7 +288,7 @@ export default function LandingPage() {
               )}
             </div>
             
-            <div className="text-white/60 font-ascender smooth-transition">
+            <div className="text-white/60 font-inter smooth-transition">
               Pytanie {currentQuestion + 1} z {questions.length}
             </div>
           </div>
@@ -342,7 +342,7 @@ export default function LandingPage() {
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ascender mb-2 text-white">Email</h3>
-                  <p className="text-xl font-ascender text-white/80">kontakt@aerodigital.pl</p>
+                  <p className="text-xl font-inter text-white/80">kontakt@aerodigital.pl</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
@@ -358,7 +358,7 @@ export default function LandingPage() {
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ascender mb-2 text-white">Telefon</h3>
-                  <p className="text-xl font-ascender text-white/80">510830344</p>
+                  <p className="text-xl font-inter text-white/80">510830344</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('510830344', 'phone')}
@@ -374,7 +374,7 @@ export default function LandingPage() {
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ascender mb-2 text-white">Instagram</h3>
-                  <p className="text-xl font-ascender text-white/80">aerodigital.pl</p>
+                  <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
@@ -390,7 +390,7 @@ export default function LandingPage() {
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-2xl font-ascender mb-2 text-white">Facebook</h3>
-                  <p className="text-xl font-ascender text-white/80">Aero Digital</p>
+                  <p className="text-xl font-inter text-white/80">Aero Digital</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('Aero Digital', 'facebook')}
@@ -448,7 +448,7 @@ export default function LandingPage() {
               <h1 className="text-5xl md:text-7xl font-bold text-white font-ascender tracking-wide mb-8 leading-tight">
                 SKALUJEMY FIRMY ONLINE
               </h1>
-              <p className="text-xl text-white/80 font-ascender mb-8 leading-relaxed">
+              <p className="text-xl text-white/80 font-inter mb-8 leading-relaxed">
                 Dedykowane strategie marketingowe, które łączą się z odbiorcami, generują mierzalne rezultaty i wspierają znaczący wzrost.
               </p>
             </div>
@@ -493,7 +493,7 @@ export default function LandingPage() {
           <h2 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-8">
             ZAAPLIKUJ TERAZ
           </h2>
-          <p className="text-2xl text-white/80 font-ascender mb-12">
+          <p className="text-2xl text-white/80 font-inter mb-12">
             Rozpocznij swoją podróż do sukcesu online
           </p>
           <button 
