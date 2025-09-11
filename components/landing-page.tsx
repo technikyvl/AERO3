@@ -75,28 +75,33 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Service buttons */}
-          <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
-            {/* Kampanie Reklamowe Button */}
+          {/* Animated arrow */}
+          <div className="flex justify-center mt-8">
             <div 
-              className="glassmorphism-button rounded-2xl p-8 cursor-pointer min-w-[300px] text-center"
-              onClick={() => handleMainClick()}
+              className="bounce-arrow text-white text-4xl"
+              onClick={() => {
+                const applySection = document.getElementById('apply-section');
+                applySection?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
-              <h2 className="text-2xl font-bold text-white font-ki-bold tracking-wide">
-                KAMPANIE REKLAMOWE
-              </h2>
-            </div>
-            
-            {/* Strony Internetowe Button */}
-            <div 
-              className="glassmorphism-button rounded-2xl p-8 cursor-pointer min-w-[300px] text-center"
-              onClick={() => handleMainClick()}
-            >
-              <h2 className="text-2xl font-bold text-white font-ki-bold tracking-wide">
-                STRONY INTERNETOWE
-              </h2>
+              ↓
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Apply Now Section */}
+      <div id="apply-section" className="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div className="text-center">
+          <h2 className="text-6xl md:text-8xl font-bold text-white font-ki-bold tracking-wide mb-8">
+            ZAAPLIKUJ TERAZ
+          </h2>
+          <p className="text-2xl text-white/80 font-inter mb-12">
+            Rozpocznij swoją podróż do sukcesu online
+          </p>
+          <button className="glassmorphism-button rounded-2xl px-12 py-6 text-2xl font-ki-bold text-white hover:bg-white/10 transition-all duration-300">
+            SKONTAKTUJ SIĘ Z NAMI
+          </button>
         </div>
       </div>
 
