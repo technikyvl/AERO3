@@ -449,7 +449,7 @@ export default function LandingPage() {
                 SKALUJEMY FIRMY ONLINE
               </h1>
               <p className="text-xl text-white/80 font-inter mb-8 leading-relaxed">
-                Dedykowane strategie marketingowe, które łączą się z odbiorcami, generują mierzalne rezultaty i wspierają znaczący wzrost.
+                Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.
               </p>
             </div>
             
