@@ -467,10 +467,10 @@ export default function LandingPage() {
                   <p className="text-lg md:text-xl font-inter text-white/80">aerodigital.pl</p>
                 </div>
                 <button
-                  onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
+                  onClick={() => window.open('https://www.instagram.com/aerodigital.pl/', '_blank')}
                   className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
-                  {copiedItem === 'instagram' ? translateText('SKOPIOWANO') : translateText('KOPIUJ')}
+                  {translateText('ODWIEDŹ')}
                 </button>
               </div>
             </div>
@@ -483,10 +483,10 @@ export default function LandingPage() {
                   <p className="text-lg md:text-xl font-inter text-white/80">Aero Digital</p>
                 </div>
                 <button
-                  onClick={() => copyToClipboard('Aero Digital', 'facebook')}
+                  onClick={() => window.open('https://www.facebook.com/profile.php?id=61576407853036', '_blank')}
                   className="liquid-glass-dark rounded-xl px-4 py-2 md:px-6 md:py-3 text-white font-ascender text-xs md:text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                 >
-                  {copiedItem === 'facebook' ? translateText('SKOPIOWANO') : translateText('KOPIUJ')}
+                  {translateText('ODWIEDŹ')}
                 </button>
               </div>
             </div>
