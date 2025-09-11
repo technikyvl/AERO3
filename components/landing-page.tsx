@@ -399,7 +399,7 @@ export default function LandingPage() {
 
   // Contact Page Component
   const ContactPage = () => (
-    <div className="min-h-screen bg-black text-white relative flex flex-col">
+    <div className="min-h-screen bg-black text-white relative flex flex-col overflow-y-auto">
       {/* Logo - Desktop only */}
       <div className="hidden md:block fixed top-8 left-8 z-50">
         <button
