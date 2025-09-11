@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function LandingPage() {
   const [clickedNav, setClickedNav] = useState<string | null>(null)
@@ -216,7 +216,7 @@ export default function LandingPage() {
             </h1>
             
             <div className="liquid-glass-dark rounded-2xl p-8 mb-8 smooth-transition">
-              <h2 className={`text-3xl font-inter text-white mb-8 ${typingComplete ? 'typing-complete' : 'typing-animation'}`}>
+              <h2 className="text-3xl font-inter text-white mb-8">
                 {currentQ.question}
               </h2>
               
