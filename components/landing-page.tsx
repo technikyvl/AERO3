@@ -18,6 +18,7 @@ export default function LandingPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isEnglish, setIsEnglish] = useState(false)
 
   const handleNavClick = (item: string) => {
     setClickedNav(item)
