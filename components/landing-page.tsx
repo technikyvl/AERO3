@@ -189,6 +189,16 @@ export default function LandingPage() {
 
     return (
       <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+        {/* Logo */}
+        <div className="fixed top-8 left-8 z-50">
+          <button
+            onClick={() => setCurrentPage('home')}
+            className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+          >
+            <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+          </button>
+        </div>
+
         {/* Navigation */}
         <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
           <div className="liquid-glass-dark rounded-full px-8 py-4">
@@ -280,6 +290,16 @@ export default function LandingPage() {
   // Contact Page Component
   const ContactPage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+      {/* Logo */}
+      <div className="fixed top-8 left-8 z-50">
+        <button
+          onClick={() => setCurrentPage('home')}
+          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+        >
+          <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+        </button>
+      </div>
+
       {/* Navigation */}
       <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
         <div className="liquid-glass-dark rounded-full px-8 py-4">
@@ -316,7 +336,7 @@ export default function LandingPage() {
                 </div>
                 <button
                   onClick={() => copyToClipboard('kontakt@aerodigital.pl', 'email')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
                 >
                   {copiedItem === 'email' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
@@ -327,12 +347,12 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Telefon</h3>
-                  <p className="text-xl font-inter text-white/80">510830344</p>
+                  <h3 className="text-2xl font-ascender mb-2 text-white">Telefon</h3>
+                  <p className="text-xl font-ascender text-white/80">510830344</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('510830344', 'phone')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
                 >
                   {copiedItem === 'phone' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
@@ -343,12 +363,12 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Instagram</h3>
-                  <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
+                  <h3 className="text-2xl font-ascender mb-2 text-white">Instagram</h3>
+                  <p className="text-xl font-ascender text-white/80">aerodigital.pl</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('aerodigital.pl', 'instagram')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
                 >
                   {copiedItem === 'instagram' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
@@ -359,12 +379,12 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Facebook</h3>
-                  <p className="text-xl font-inter text-white/80">Aero Digital</p>
+                  <h3 className="text-2xl font-ascender mb-2 text-white">Facebook</h3>
+                  <p className="text-xl font-ascender text-white/80">Aero Digital</p>
                 </div>
                 <button
                   onClick={() => copyToClipboard('Aero Digital', 'facebook')}
-                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ki-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
+                  className="liquid-glass-dark rounded-xl px-6 py-3 text-white font-ascender text-sm uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
                 >
                   {copiedItem === 'facebook' ? 'SKOPIOWANO' : 'KOPIUJ'}
                 </button>
@@ -379,6 +399,16 @@ export default function LandingPage() {
   // Home Page Component
   const HomePage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+      {/* Logo */}
+      <div className="fixed top-8 left-8 z-50">
+        <button
+          onClick={() => setCurrentPage('home')}
+          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+        >
+          <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+        </button>
+      </div>
+
       {/* Navigation */}
       <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
         <div className="liquid-glass-dark rounded-full px-8 py-4">
