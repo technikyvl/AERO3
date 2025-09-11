@@ -44,16 +44,27 @@ export default function LandingPage() {
       {/* Main content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
         <div className="text-center">
-          {/* Main heading with liquid glass effect */}
-          <div 
-            className="liquid-glass-dark rounded-3xl p-16 mx-4 backdrop-blur-xl cursor-pointer"
-            onClick={handleMainClick}
-          >
-            <h1
-              className={`text-8xl md:text-9xl font-bold text-white tracking-widest font-dm-sans unselectable ${clickedMain ? 'click-metallic' : ''}`}
+          {/* Service buttons */}
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+            {/* Kampanie Reklamowe Button */}
+            <div 
+              className="glassmorphism-button rounded-2xl p-8 cursor-pointer min-w-[300px] text-center"
+              onClick={() => handleMainClick()}
             >
-              AERODIGITAL
-            </h1>
+              <h2 className="text-2xl font-bold text-white font-dm-sans tracking-wide">
+                KAMPANIE REKLAMOWE
+              </h2>
+            </div>
+            
+            {/* Strony Internetowe Button */}
+            <div 
+              className="glassmorphism-button rounded-2xl p-8 cursor-pointer min-w-[300px] text-center"
+              onClick={() => handleMainClick()}
+            >
+              <h2 className="text-2xl font-bold text-white font-dm-sans tracking-wide">
+                STRONY INTERNETOWE
+              </h2>
+            </div>
           </div>
         </div>
       </div>
