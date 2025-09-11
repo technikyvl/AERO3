@@ -32,6 +32,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Ki+Maru:wght@300;400;500&display=swap"
+          rel="stylesheet"
+        />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
@@ -40,6 +44,7 @@ html {
   --font-saira: 'Saira', sans-serif;
   --font-ascender: 'JetBrains Mono', monospace;
   --font-dm-sans: 'DM Sans', sans-serif;
+  --font-ki-bold: 'Ki Maru', serif;
 }
         `}</style>
       </head>

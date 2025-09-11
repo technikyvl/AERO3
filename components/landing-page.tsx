@@ -51,7 +51,7 @@ export default function LandingPage() {
               className="glassmorphism-button rounded-2xl p-8 cursor-pointer min-w-[300px] text-center"
               onClick={() => handleMainClick()}
             >
-              <h2 className="text-2xl font-bold text-white font-dm-sans tracking-wide">
+              <h2 className="text-2xl font-bold text-white font-ki-bold tracking-wide">
                 KAMPANIE REKLAMOWE
               </h2>
             </div>
@@ -61,7 +61,7 @@ export default function LandingPage() {
               className="glassmorphism-button rounded-2xl p-8 cursor-pointer min-w-[300px] text-center"
               onClick={() => handleMainClick()}
             >
-              <h2 className="text-2xl font-bold text-white font-dm-sans tracking-wide">
+              <h2 className="text-2xl font-bold text-white font-ki-bold tracking-wide">
                 STRONY INTERNETOWE
               </h2>
             </div>
