@@ -9,6 +9,8 @@ export default function LandingPage() {
   const [currentPage, setCurrentPage] = useState<'home' | 'contact' | 'form'>('home')
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [formData, setFormData] = useState({
+    name: '',
+    email: '',
     serviceType: '',
     phoneNumber: '',
     websiteUrl: '',
@@ -72,7 +74,7 @@ export default function LandingPage() {
   }
 
   const nextQuestion = () => {
-    if (currentQuestion < 3) {
+    if (currentQuestion < 5) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
       handleFormSubmit()
@@ -88,6 +90,8 @@ export default function LandingPage() {
   const resetForm = () => {
     setCurrentQuestion(0)
     setFormData({
+      name: '',
+      email: '',
       serviceType: '',
       phoneNumber: '',
       websiteUrl: '',
