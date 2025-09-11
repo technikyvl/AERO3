@@ -20,6 +20,64 @@ export default function LandingPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isEnglish, setIsEnglish] = useState(false)
 
+  // Translation dictionary
+  const translations = {
+    // Navigation
+    'Strona Główna': 'Home',
+    'Kontakt': 'Contact',
+    
+    // Hero Section
+    'SKALUJEMY FIRMY ONLINE': 'SCALE COMPANIES ONLINE',
+    'Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.': 'Marketing strategies that reach people, deliver concrete results and help scale your business.',
+    
+    // Apply Section
+    'ZAAPLIKUJ TERAZ': 'APPLY NOW',
+    'Rozpocznij swoją podróż do sukcesu online': 'Start your journey to online success',
+    'WYPEŁNIJ FORMULARZ': 'FILL OUT FORM',
+    
+    // Contact Section
+    'KONTAKT': 'CONTACT',
+    'Email': 'Email',
+    'Telefon': 'Phone',
+    'Instagram': 'Instagram',
+    'Facebook': 'Facebook',
+    'KOPIUJ': 'COPY',
+    'SKOPIOWANO': 'COPIED',
+    
+    // Form Section
+    'FORMULARZ': 'FORM',
+    'Jak masz na imię?': 'What is your name?',
+    'Jaki jest Twój adres email?': 'What is your email address?',
+    'Jaki rodzaj usługi cię interesuje?': 'What type of service are you interested in?',
+    'Strona internetowa': 'Website',
+    'Kampania reklamowa': 'Advertising campaign',
+    'Numer telefonu:': 'Phone number:',
+    'URL do Instagram/strony internetowej twojej firmy': 'URL to Instagram/website of your company',
+    'Ile pieniędzy możesz przeznaczyć na skalowanie twojej marki?': 'How much money can you allocate to scaling your brand?',
+    'WSTECZ': 'BACK',
+    'DALEJ': 'NEXT',
+    'WYŚLIJ': 'SEND',
+    'WYSYŁANIE...': 'SENDING...',
+    'Pytanie': 'Question',
+    'z': 'of',
+    
+    // Success Section
+    'DZIĘKUJEMY!': 'THANK YOU!',
+    'To wszystko. Skontaktujemy się z tobą wkrótce.': 'That\'s all. We will contact you soon.',
+    'WRÓĆ DO STRONY GŁÓWNEJ': 'BACK TO HOME PAGE',
+    
+    // Form Questions
+    'Jaki rodzaj usługi cię interesuje?': 'What type of service are you interested in?',
+    'Numer telefonu:': 'Phone number:',
+    'URL do Instagram/strony internetowej twojej firmy': 'URL to Instagram/website of your company',
+    'Ile pieniędzy możesz przeznaczyć na skalowanie twojej marki?': 'How much money can you allocate to scaling your brand?'
+  }
+
+  const translateText = (text: string) => {
+    if (!isEnglish) return text
+    return translations[text as keyof typeof translations] || text
+  }
+
   const handleNavClick = (item: string) => {
     setClickedNav(item)
     setTimeout(() => setClickedNav(null), 600)
