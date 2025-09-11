@@ -394,8 +394,8 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
-  )
-  }
+  );
+};
 
   // Contact Page Component
   const ContactPage = () => (
