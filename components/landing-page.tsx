@@ -116,7 +116,7 @@ export default function LandingPage() {
             <div className="liquid-glass-dark rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div className="text-left">
-                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Facebook</h3>
+                  <h3 className="text-2xl font-ki-bold mb-2 text-white">Aero Digital</h3>
                   <p className="text-xl font-inter text-white/80">aerodigital.pl</p>
                 </div>
                 <button
