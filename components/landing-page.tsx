@@ -244,14 +244,14 @@ export default function LandingPage() {
                     value={formData[currentQ.id as keyof typeof formData]}
                     onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
                     placeholder={currentQ.placeholder}
-                    className="w-full liquid-glass-dark rounded-xl p-4 text-xl font-inter text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
+                    className="w-full liquid-glass-dark rounded-xl p-4 text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
                     autoFocus
                   />
                   <div className="flex gap-4 justify-center">
                     {currentQuestion > 0 && (
                       <button
                         onClick={prevQuestion}
-                        className="metallic-button rounded-xl px-8 py-3 text-lg font-ki-bold text-white smooth-transition"
+                        className="metallic-button rounded-xl px-8 py-3 text-lg font-ascender text-white smooth-transition"
                       >
                         WSTECZ
                       </button>
