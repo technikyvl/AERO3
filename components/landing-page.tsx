@@ -145,27 +145,27 @@ export default function LandingPage() {
     const currentQ = questions[currentQuestion]
 
     if (isSubmitted) {
-  return (
+      return (
         <div className="min-h-screen bg-black text-white relative overflow-y-auto">
           {/* Logo */}
-          <div className="fixed top-8 left-8 z-50">
+          <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
             <button
               onClick={() => setCurrentPage('home')}
-              className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+              className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
             >
               <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
             </button>
           </div>
 
           {/* Navigation */}
-          <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
-            <div className="liquid-glass-dark rounded-full px-8 py-4">
-              <div className="flex space-x-8">
+          <nav className="fixed top-4 right-4 z-50 md:top-8 md:left-1/2 md:transform md:-translate-x-1/2">
+            <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
+              <div className="flex space-x-4 md:space-x-8">
                 {['Strona Główna', 'Kontakt'].map((item) => (
                   <button
                     key={item}
                     onClick={() => handleNavClick(item)}
-                    className={`font-ascender font-light text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
+                    className={`font-ascender font-light text-xs md:text-sm tracking-wider uppercase ios-scale transition-all duration-300 ${
                       clickedNav === item ? 'click-glass' : ''
                     } ${currentPage === item ? 'text-white font-bold' : 'text-white/70'} hover:text-white`}
                   >
@@ -177,17 +177,17 @@ export default function LandingPage() {
           </nav>
 
           {/* Success Message */}
-          <div className="relative z-10 flex items-center justify-center min-h-screen px-6 pt-32">
+          <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
             <div className="text-center max-w-2xl">
-              <h1 className="text-6xl md:text-8xl font-bold text-white font-ascender tracking-wide mb-8">
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8">
                 DZIĘKUJEMY!
               </h1>
-              <p className="text-2xl text-white/80 font-inter mb-12">
+              <p className="text-lg md:text-2xl text-white/80 font-inter mb-8 md:mb-12">
                 To wszystko. Skontaktujemy się z tobą wkrótce.
               </p>
               <button
                 onClick={resetForm}
-                className="liquid-glass-dark rounded-2xl px-12 py-6 text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300"
+                className="liquid-glass-dark rounded-2xl px-8 py-4 md:px-12 md:py-6 text-lg md:text-2xl font-ascender text-white hover:bg-white/10 transition-all duration-300 w-full max-w-md mx-auto"
               >
                 WRÓĆ DO STRONY GŁÓWNEJ
               </button>
