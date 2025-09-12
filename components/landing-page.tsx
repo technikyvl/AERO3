@@ -6,7 +6,7 @@ export default function LandingPage() {
   const [clickedNav, setClickedNav] = useState<string | null>(null)
   const [clickedMain, setClickedMain] = useState(false)
   const [copiedItem, setCopiedItem] = useState<string | null>(null)
-  const [currentPage, setCurrentPage] = useState<'home' | 'contact' | 'form'>('home')
+  const [currentPage, setCurrentPage] = useState<'home' | 'contact' | 'form' | 'privacy'>('home')
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [formData, setFormData] = useState({
     name: '',
@@ -66,6 +66,57 @@ export default function LandingPage() {
     'DZIĘKUJEMY!': 'THANK YOU!',
     'To wszystko. Skontaktujemy się z tobą wkrótce.': 'That\'s all. We will contact you soon.',
     'WRÓĆ DO STRONY GŁÓWNEJ': 'BACK TO HOME PAGE',
+    
+    // Privacy Policy
+    'REGULAMIN': 'PRIVACY POLICY',
+    'REGULAMIN PRZECHOWYWANIA DANYCH': 'DATA STORAGE REGULATIONS',
+    '1. ADMINISTRATOR DANYCH': '1. DATA ADMINISTRATOR',
+    'Administratorem danych osobowych jest Aero Digital z siedzibą w Polsce.': 'The administrator of personal data is Aero Digital based in Poland.',
+    '2. CEL PRZETWARZANIA DANYCH': '2. PURPOSE OF DATA PROCESSING',
+    'Dane osobowe są przetwarzane w celu:': 'Personal data is processed for the purpose of:',
+    '• Kontaktu z klientem w sprawie oferowanych usług': '• Contacting the client regarding offered services',
+    '• Przedstawienia oferty handlowej': '• Presenting commercial offers',
+    '• Realizacji usług marketingowych': '• Providing marketing services',
+    '• Analizy potrzeb klienta': '• Analyzing customer needs',
+    '3. PODSTAWY PRAWNE': '3. LEGAL BASIS',
+    'Przetwarzanie danych odbywa się na podstawie:': 'Data processing is based on:',
+    '• Zgody osoby, której dane dotyczą (art. 6 ust. 1 lit. a RODO)': '• Consent of the data subject (Art. 6(1)(a) GDPR)',
+    '• Wykonania umowy lub podjęcia działań przed zawarciem umowy (art. 6 ust. 1 lit. b RODO)': '• Performance of contract or taking steps prior to entering into a contract (Art. 6(1)(b) GDPR)',
+    '4. RODZAJE DANYCH': '4. TYPES OF DATA',
+    'Przetwarzamy następujące dane osobowe:': 'We process the following personal data:',
+    '• Imię i nazwisko': '• First and last name',
+    '• Adres e-mail': '• Email address',
+    '• Numer telefonu': '• Phone number',
+    '• Informacje o firmie i jej potrzebach': '• Information about the company and its needs',
+    '5. OKRES PRZECHOWYWANIA': '5. RETENTION PERIOD',
+    'Dane osobowe będą przechowywane przez okres:': 'Personal data will be stored for the period of:',
+    '• 3 lata od ostatniego kontaktu z klientem': '• 3 years from the last contact with the client',
+    '• Do momentu wycofania zgody': '• Until consent is withdrawn',
+    '• Do momentu zrealizowania celu przetwarzania': '• Until the processing purpose is fulfilled',
+    '6. PRAWA OSOBY, KTÓREJ DANE DOTYCZĄ': '6. RIGHTS OF THE DATA SUBJECT',
+    'Osoba, której dane dotyczą, ma prawo do:': 'The data subject has the right to:',
+    '• Dostępu do swoich danych': '• Access to their data',
+    '• Sprostowania nieprawidłowych danych': '• Rectification of incorrect data',
+    '• Usunięcia danych': '• Erasure of data',
+    '• Ograniczenia przetwarzania': '• Restriction of processing',
+    '• Przenoszenia danych': '• Data portability',
+    '• Wycofania zgody w dowolnym momencie': '• Withdrawing consent at any time',
+    '• Wniesienia skargi do organu nadzorczego': '• Lodging a complaint with the supervisory authority',
+    '7. BEZPIECZEŃSTWO DANYCH': '7. DATA SECURITY',
+    'Zapewniamy odpowiednie środki techniczne i organizacyjne w celu ochrony danych osobowych przed:': 'We ensure appropriate technical and organizational measures to protect personal data against:',
+    '• Nieuprawnionym dostępem': '• Unauthorized access',
+    '• Utratą danych': '• Data loss',
+    '• Zniszczeniem danych': '• Data destruction',
+    '• Nieuprawnioną modyfikacją': '• Unauthorized modification',
+    '8. UDOSTĘPNIANIE DANYCH': '8. DATA SHARING',
+    'Dane osobowe nie są udostępniane podmiotom trzecim bez zgody osoby, której dane dotyczą, chyba że wymaga tego prawo.': 'Personal data is not shared with third parties without the consent of the data subject, unless required by law.',
+    '9. KONTAKT': '9. CONTACT',
+    'W sprawach dotyczących przetwarzania danych osobowych można się kontaktować:': 'For matters regarding personal data processing, you can contact:',
+    '• E-mail: kontakt@aerodigital.pl': '• Email: kontakt@aerodigital.pl',
+    '• Telefon: 510830344': '• Phone: 510830344',
+    '10. ZMIANY W REGULAMINIE': '10. CHANGES TO THE REGULATIONS',
+    'Regulamin może być zmieniany. O zmianach będziemy informować na stronie internetowej.': 'The regulations may be changed. We will inform about changes on the website.',
+    'Ostatnia aktualizacja: 1 stycznia 2025 r.': 'Last updated: January 1, 2025',
     
     // Form Placeholders
     'Wprowadź swoje imię': 'Enter your name',
@@ -525,8 +576,198 @@ export default function LandingPage() {
             </button>
             <span className="text-white/60 font-ascender text-sm">2025</span>
           </div>
-          <div className="text-white/60 font-inter text-sm text-center md:text-right">
-            Wojciech Zaniewski & Jakub Eliasik
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="text-white/60 font-inter text-sm text-center md:text-right">
+              Wojciech Zaniewski & Jakub Eliasik
+            </div>
+            <button
+              onClick={() => setCurrentPage('privacy')}
+              className="text-white/60 hover:text-white font-inter text-sm underline transition-colors duration-300"
+            >
+              {translateText('REGULAMIN')}
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+
+  // Privacy Policy Page Component
+  const PrivacyPage = () => (
+    <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+      {/* Logo - Desktop only */}
+      <div className="hidden md:block fixed top-8 left-8 z-50">
+        <button
+          onClick={() => setCurrentPage('home')}
+          className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+        >
+          <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+        </button>
+      </div>
+
+      {/* Translation Button */}
+      <div className="fixed top-4 right-4 z-50 md:top-8 md:right-8">
+        <button
+          onClick={() => setIsEnglish(!isEnglish)}
+          className="liquid-glass-dark rounded-full px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-ascender text-white hover:bg-white/10 transition-all duration-300 ios-scale"
+        >
+          {isEnglish ? 'PL' : 'EN'}
+        </button>
+      </div>
+
+      {/* Navigation */}
+      <nav className="fixed top-4 left-4 z-50 md:top-8 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2">
+        <div className="liquid-glass-dark rounded-full px-4 py-2 md:px-8 md:py-4">
+          <div className="flex space-x-4 md:space-x-8">
+            {['Strona Główna', 'Kontakt'].map((item) => (
+              <button
+                key={item}
+                onClick={() => handleNavClick(item)}
+                className={`text-xs md:text-sm font-ascender text-white hover:text-white/70 transition-all duration-300 ${
+                  clickedNav === item ? 'click-glass' : ''
+                } ${currentPage === (item === 'Strona Główna' ? 'home' : 'contact') ? 'text-white' : 'text-white/70'}`}
+              >
+                {translateText(item)}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Privacy Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
+        <div className="text-center max-w-4xl w-full">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16">
+            {translateText('REGULAMIN PRZECHOWYWANIA DANYCH')}
+          </h1>
+          
+          <div className="space-y-8 text-left">
+            {/* Section 1 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('1. ADMINISTRATOR DANYCH')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80">{translateText('Administratorem danych osobowych jest Aero Digital z siedzibą w Polsce.')}</p>
+            </div>
+
+            {/* Section 2 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('2. CEL PRZETWARZANIA DANYCH')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('Dane osobowe są przetwarzane w celu:')}</p>
+              <ul className="space-y-2 text-lg md:text-xl font-inter text-white/80">
+                <li>• {translateText('Kontaktu z klientem w sprawie oferowanych usług')}</li>
+                <li>• {translateText('Przedstawienia oferty handlowej')}</li>
+                <li>• {translateText('Realizacji usług marketingowych')}</li>
+                <li>• {translateText('Analizy potrzeb klienta')}</li>
+              </ul>
+            </div>
+
+            {/* Section 3 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('3. PODSTAWY PRAWNE')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('Przetwarzanie danych odbywa się na podstawie:')}</p>
+              <ul className="space-y-2 text-lg md:text-xl font-inter text-white/80">
+                <li>• {translateText('Zgody osoby, której dane dotyczą (art. 6 ust. 1 lit. a RODO)')}</li>
+                <li>• {translateText('Wykonania umowy lub podjęcia działań przed zawarciem umowy (art. 6 ust. 1 lit. b RODO)')}</li>
+              </ul>
+            </div>
+
+            {/* Section 4 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('4. RODZAJE DANYCH')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('Przetwarzamy następujące dane osobowe:')}</p>
+              <ul className="space-y-2 text-lg md:text-xl font-inter text-white/80">
+                <li>• {translateText('Imię i nazwisko')}</li>
+                <li>• {translateText('Adres e-mail')}</li>
+                <li>• {translateText('Numer telefonu')}</li>
+                <li>• {translateText('Informacje o firmie i jej potrzebach')}</li>
+              </ul>
+            </div>
+
+            {/* Section 5 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('5. OKRES PRZECHOWYWANIA')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('Dane osobowe będą przechowywane przez okres:')}</p>
+              <ul className="space-y-2 text-lg md:text-xl font-inter text-white/80">
+                <li>• {translateText('3 lata od ostatniego kontaktu z klientem')}</li>
+                <li>• {translateText('Do momentu wycofania zgody')}</li>
+                <li>• {translateText('Do momentu zrealizowania celu przetwarzania')}</li>
+              </ul>
+            </div>
+
+            {/* Section 6 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('6. PRAWA OSOBY, KTÓREJ DANE DOTYCZĄ')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('Osoba, której dane dotyczą, ma prawo do:')}</p>
+              <ul className="space-y-2 text-lg md:text-xl font-inter text-white/80">
+                <li>• {translateText('Dostępu do swoich danych')}</li>
+                <li>• {translateText('Sprostowania nieprawidłowych danych')}</li>
+                <li>• {translateText('Usunięcia danych')}</li>
+                <li>• {translateText('Ograniczenia przetwarzania')}</li>
+                <li>• {translateText('Przenoszenia danych')}</li>
+                <li>• {translateText('Wycofania zgody w dowolnym momencie')}</li>
+                <li>• {translateText('Wniesienia skargi do organu nadzorczego')}</li>
+              </ul>
+            </div>
+
+            {/* Section 7 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('7. BEZPIECZEŃSTWO DANYCH')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('Zapewniamy odpowiednie środki techniczne i organizacyjne w celu ochrony danych osobowych przed:')}</p>
+              <ul className="space-y-2 text-lg md:text-xl font-inter text-white/80">
+                <li>• {translateText('Nieuprawnionym dostępem')}</li>
+                <li>• {translateText('Utratą danych')}</li>
+                <li>• {translateText('Zniszczeniem danych')}</li>
+                <li>• {translateText('Nieuprawnioną modyfikacją')}</li>
+              </ul>
+            </div>
+
+            {/* Section 8 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('8. UDOSTĘPNIANIE DANYCH')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80">{translateText('Dane osobowe nie są udostępniane podmiotom trzecim bez zgody osoby, której dane dotyczą, chyba że wymaga tego prawo.')}</p>
+            </div>
+
+            {/* Section 9 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('9. KONTAKT')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('W sprawach dotyczących przetwarzania danych osobowych można się kontaktować:')}</p>
+              <ul className="space-y-2 text-lg md:text-xl font-inter text-white/80">
+                <li>• {translateText('E-mail: kontakt@aerodigital.pl')}</li>
+                <li>• {translateText('Telefon: 510830344')}</li>
+              </ul>
+            </div>
+
+            {/* Section 10 */}
+            <div className="liquid-glass-dark rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-ascender mb-4 text-white">{translateText('10. ZMIANY W REGULAMINIE')}</h2>
+              <p className="text-lg md:text-xl font-inter text-white/80 mb-4">{translateText('Regulamin może być zmieniany. O zmianach będziemy informować na stronie internetowej.')}</p>
+              <p className="text-lg md:text-xl font-inter text-white/60">{translateText('Ostatnia aktualizacja: 1 stycznia 2025 r.')}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-black border-t border-white/10 py-8 px-4 mt-auto">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setCurrentPage('home')}
+              className="text-xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+            >
+              <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+            </button>
+            <span className="text-white/60 font-ascender text-sm">2025</span>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="text-white/60 font-inter text-sm text-center md:text-right">
+              Wojciech Zaniewski & Jakub Eliasik
+            </div>
+            <button
+              onClick={() => setCurrentPage('privacy')}
+              className="text-white/60 hover:text-white font-inter text-sm underline transition-colors duration-300"
+            >
+              {translateText('REGULAMIN')}
+            </button>
           </div>
         </div>
       </footer>
@@ -669,8 +910,16 @@ export default function LandingPage() {
             </button>
             <span className="text-white/60 font-ascender text-sm">2025</span>
           </div>
-          <div className="text-white/60 font-inter text-sm text-center md:text-right">
-            Wojciech Zaniewski & Jakub Eliasik
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="text-white/60 font-inter text-sm text-center md:text-right">
+              Wojciech Zaniewski & Jakub Eliasik
+            </div>
+            <button
+              onClick={() => setCurrentPage('privacy')}
+              className="text-white/60 hover:text-white font-inter text-sm underline transition-colors duration-300"
+            >
+              {translateText('REGULAMIN')}
+            </button>
           </div>
         </div>
       </footer>
@@ -680,5 +929,6 @@ export default function LandingPage() {
   // Main render with conditional page display
   if (currentPage === 'contact') return <ContactPage />
   if (currentPage === 'form') return <FormPage />
+  if (currentPage === 'privacy') return <PrivacyPage />
   return <HomePage />
 }
