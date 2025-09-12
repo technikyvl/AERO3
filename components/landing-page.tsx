@@ -57,10 +57,10 @@ export default function LandingPage() {
     'WSTECZ': 'BACK',
     'DALEJ': 'NEXT',
     'WYŚLIJ': 'SEND',
-    'WYSYŁANIE...': 'SENDING...',
-    'Pytanie': 'Question',
-    'ODWIEDŹ': 'VISIT',
-    'z': 'of',
+      'WYSYŁANIE...': 'SENDING...',
+      'Pytanie': 'Question',
+      'z': 'of',
+      'ODWIEDŹ': 'VISIT',
     
     // Success Section
     'DZIĘKUJEMY!': 'THANK YOU!',
@@ -207,7 +207,7 @@ export default function LandingPage() {
 
     if (isSubmitted) {
   return (
-        <div className="h-screen bg-black text-white relative flex flex-col">
+        <div className="min-h-screen bg-black text-white relative overflow-y-auto">
           {/* Logo */}
           <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
             <button
@@ -248,7 +248,7 @@ export default function LandingPage() {
           </nav>
 
           {/* Success Message */}
-          <div className="relative z-10 flex items-center justify-center flex-1 overflow-y-auto px-4 md:px-6 pt-20 md:pt-32">
+          <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
             <div className="text-center max-w-2xl">
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8">
                 {translateText('DZIĘKUJEMY!')}
@@ -264,17 +264,35 @@ export default function LandingPage() {
               </button>
             </div>
           </div>
+
+          {/* Footer */}
+          <footer className="bg-black border-t border-white/10 py-8 px-4 mt-auto">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => setCurrentPage('home')}
+                  className="text-xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+                >
+                  <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
+                </button>
+                <span className="text-white/60 font-ascender text-sm">2025</span>
+              </div>
+              <div className="text-white/60 font-inter text-sm text-center md:text-right">
+                Wojciech Zaniewski & Jakub Eliasik
+              </div>
+            </div>
+          </footer>
         </div>
       )
     }
 
     return (
-      <div className="min-h-screen bg-black text-white relative flex flex-col overflow-y-auto">
-        {/* Logo - Desktop only */}
-        <div className="hidden md:block fixed top-8 left-8 z-50">
+      <div className="min-h-screen bg-black text-white relative overflow-y-auto">
+        {/* Logo */}
+        <div className="fixed top-4 left-4 z-50 md:top-8 md:left-8">
           <button
             onClick={() => setCurrentPage('home')}
-            className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+            className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
           >
             <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
           </button>
@@ -310,7 +328,7 @@ export default function LandingPage() {
         </nav>
 
         {/* Form Content */}
-        <div className="relative z-10 flex items-center justify-center flex-1 px-4 md:px-6 pt-20 md:pt-32">
+        <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
           <div className="text-center max-w-2xl w-full">
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16 smooth-transition">
               {translateText('FORMULARZ')}
@@ -343,7 +361,7 @@ export default function LandingPage() {
                   <input
                     type="text"
                     value={formData[currentQ.id as keyof typeof formData]}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, [currentQ.id]: e.target.value})}
+                    onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
                     placeholder={translateText(currentQ.placeholder || '')}
                     className="w-full liquid-glass-dark rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
                     autoFocus
@@ -375,36 +393,17 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-black border-t border-white/10 py-8 px-4 mt-auto">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setCurrentPage('home')}
-              className="text-xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
-            >
-              <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
-            </button>
-            <span className="text-white/60 font-ascender text-sm">2025</span>
-          </div>
-          <div className="text-white/60 font-inter text-sm text-center md:text-right">
-            Wojciech Zaniewski & Jakub Eliasik
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
+    )
   }
 
   // Contact Page Component
   const ContactPage = () => (
-    <div className="min-h-screen bg-black text-white relative flex flex-col overflow-y-auto">
+    <div className="min-h-screen bg-black text-white relative overflow-y-auto">
       {/* Logo - Desktop only */}
       <div className="hidden md:block fixed top-8 left-8 z-50">
         <button
           onClick={() => setCurrentPage('home')}
-          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+          className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
         >
           <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
         </button>
@@ -440,7 +439,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Contact Content */}
-      <div className="relative z-10 flex items-center justify-center flex-1 px-4 md:px-6 pt-20 md:pt-32">
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
         <div className="text-center max-w-2xl w-full">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-12 md:mb-16">
             {translateText('KONTAKT')}
@@ -536,12 +535,12 @@ export default function LandingPage() {
 
   // Home Page Component
   const HomePage = () => (
-    <div className="min-h-screen bg-black text-white relative flex flex-col overflow-y-auto">
+    <div className="min-h-screen bg-black text-white relative overflow-y-auto">
       {/* Logo - Desktop only */}
       <div className="hidden md:block fixed top-8 left-8 z-50">
         <button
           onClick={() => setCurrentPage('home')}
-          className="text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
+          className="text-lg md:text-2xl font-dm-sans font-bold text-white hover:text-white/70 transition-colors duration-300"
         >
           <span className="uppercase">AERO</span><span className="font-normal">DIGITAL</span>
         </button>
@@ -577,7 +576,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <div id="hero-section" className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 md:px-6 pt-20 md:pt-32">
+      <div id="hero-section" className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 pt-20 md:pt-32">
         <div className="text-center max-w-6xl w-full">
           {/* Hero content - Layout like the image */}
           <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12 mb-12 md:mb-16">
