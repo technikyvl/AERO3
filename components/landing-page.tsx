@@ -866,7 +866,7 @@ export default function LandingPage() {
       </div>
 
       {/* Apply Now Section */}
-      <div id="apply-section" className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6">
+      <div id="apply-section" className="relative z-10 flex items-center justify-center min-h-[80vh] px-4 md:px-6">
         <div className="text-center max-w-4xl">
           <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white font-ascender tracking-wide mb-6 md:mb-8">
             {translateText('ZAAPLIKUJ TERAZ')}
@@ -882,7 +882,7 @@ export default function LandingPage() {
           </button>
           
           {/* Back to Top Arrow */}
-          <div className="flex justify-center mt-32">
+          <div className="flex justify-center mt-16">
             <div 
               className="bounce-arrow-up text-white text-4xl"
               onClick={() => {
