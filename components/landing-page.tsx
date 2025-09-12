@@ -581,25 +581,7 @@ export default function LandingPage() {
         <div className="text-center max-w-6xl w-full">
           {/* Hero content - Layout like the image */}
           <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12 mb-12 md:mb-16">
-            {/* Left side - Images */}
-            <div className="flex-1 flex flex-col sm:flex-row lg:flex-row gap-4 md:gap-6 justify-center lg:justify-start w-full lg:w-auto">
-              <div className="glassmorphism-button rounded-2xl p-3 md:p-4 w-full max-w-[300px] h-[300px] sm:max-w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex items-center justify-center mx-auto lg:mx-0">
-                <img 
-                  src="/kampania.png" 
-                  alt="Kampanie Reklamowe" 
-                  className="w-full h-full object-contain rounded-xl"
-                />
-              </div>
-              <div className="glassmorphism-button rounded-2xl p-3 md:p-4 w-full max-w-[300px] h-[300px] sm:max-w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex items-center justify-center mx-auto lg:mx-0">
-                <img 
-                  src="/stat.png" 
-                  alt="Statystyki" 
-                  className="w-full h-full object-contain rounded-xl"
-                />
-              </div>
-            </div>
-            
-            {/* Right side - Text content */}
+            {/* Left side - Text content */}
             <div className="flex-1 text-left w-full lg:w-auto">
               <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white font-ascender tracking-normal mb-6 md:mb-8 leading-tight">
                 {translateText('SKALUJEMY FIRMY ONLINE')}
@@ -608,6 +590,9 @@ export default function LandingPage() {
                 {translateText('Strategie marketingowe, które docierają do ludzi, przynoszą konkretne efekty i pomagają skalować twoją firmę.')}
               </p>
             </div>
+            
+            {/* Right side - Images */}
+            <div className="flex-1 flex flex-col sm:flex-row lg:flex-row gap-4 md:gap-6 justify-center lg:justify-end w-full lg:w-auto">
               <div className="glassmorphism-button rounded-2xl p-3 md:p-4 w-full max-w-[300px] h-[300px] sm:max-w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex items-center justify-center mx-auto lg:mx-0">
                 <img 
                   src="/kampania.png" 
