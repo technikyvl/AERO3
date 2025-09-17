@@ -20,6 +20,23 @@ export default function LandingPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isEnglish, setIsEnglish] = useState(false)
 
+  // Obsługa sukcesu po standardowym wysłaniu formularza
+  React.useEffect(() => {
+    const handleFormSuccess = () => {
+      // Sprawdź URL czy zawiera parametr sukcesu od Formspree
+      if (window.location.search.includes('success=true') || 
+          window.location.hash.includes('success')) {
+        setIsSubmitted(true)
+      }
+    }
+    
+    handleFormSuccess()
+    
+    // Nasłuchuj na zmiany URL
+    window.addEventListener('popstate', handleFormSuccess)
+    return () => window.removeEventListener('popstate', handleFormSuccess)
+  }, [])
+
   // Translation dictionary
   const translations = {
     // Navigation
@@ -164,28 +181,71 @@ export default function LandingPage() {
     // Debug: wyświetl dane które będą wysłane
     console.log('Wysyłane dane:', formData)
     
+    // Sprawdź czy wszystkie wymagane pola są wypełnione
+    const requiredFields = ['name', 'email', 'serviceType', 'phoneNumber', 'websiteUrl', 'budget']
+    const missingFields = requiredFields.filter(field => !formData[field as keyof typeof formData])
+    
+    if (missingFields.length > 0) {
+      console.error('Brakujące pola:', missingFields)
+      alert('Proszę wypełnić wszystkie pola formularza.')
+      setIsSubmitting(false)
+      return
+    }
+    
     try {
-      // Formspree oczekuje danych w formacie FormData lub application/x-www-form-urlencoded
-      const formDataToSend = new FormData()
-      formDataToSend.append('name', formData.name)
-      formDataToSend.append('email', formData.email)
-      formDataToSend.append('service', formData.serviceType)
-      formDataToSend.append('phone', formData.phoneNumber)
-      formDataToSend.append('url', formData.websiteUrl)
-      formDataToSend.append('budget', formData.budget)
+      // Użyj application/x-www-form-urlencoded zamiast FormData
+      const params = new URLSearchParams()
+      params.append('name', formData.name)
+      params.append('email', formData.email)
+      params.append('service', formData.serviceType)
+      params.append('phone', formData.phoneNumber)
+      params.append('url', formData.websiteUrl)
+      params.append('budget', formData.budget)
       
-      console.log('FormData zawartość:')
-      for (let [key, value] of formDataToSend.entries()) {
+      console.log('URLSearchParams zawartość:')
+      for (let [key, value] of params.entries()) {
         console.log(key, value)
       }
       
-      const response = await fetch('https://formspree.io/f/mkgveked', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formDataToSend
-      })
+      // Spróbuj różnych formatów endpointu
+      const endpoints = [
+        'https://formspree.io/f/mkgveked',
+        'https://formspree.io/f/xmkgveked',
+        'https://formspree.io/f/xnkgveked'
+      ]
+      
+      let response = null
+      let lastError = null
+      
+      for (const endpoint of endpoints) {
+        try {
+          console.log('Próba wysłania do:', endpoint)
+          response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Accept': 'application/json'
+            },
+            body: params.toString()
+          })
+          
+          console.log('Response status dla', endpoint, ':', response.status)
+          
+          if (response.ok) {
+            console.log('Sukces z endpointem:', endpoint)
+            break
+          } else {
+            lastError = `Status ${response.status} dla ${endpoint}`
+          }
+        } catch (error) {
+          lastError = `Błąd dla ${endpoint}: ${error}`
+          console.error('Błąd dla endpointu', endpoint, ':', error)
+        }
+      }
+      
+      if (!response) {
+        throw new Error('Wszystkie endpointy nie powiodły się. Ostatni błąd: ' + lastError)
+      }
       
       console.log('Response status:', response.status)
       console.log('Response ok:', response.ok)
@@ -197,7 +257,7 @@ export default function LandingPage() {
         const errorText = await response.text()
         console.error('Failed to send form to Formspree:', response.status, response.statusText, errorText)
         // Dodaj alert dla użytkownika
-        alert(`Wystąpił błąd podczas wysyłania formularza (${response.status}). Spróbuj ponownie.`)
+        alert(`Wystąpił błąd podczas wysyłania formularza (${response.status}). Sprawdź konsolę dla szczegółów.`)
       }
     } catch (error) {
       console.error('Error sending form to Formspree:', error)
@@ -209,15 +269,29 @@ export default function LandingPage() {
   }
 
   const nextQuestion = (e?: React.FormEvent) => {
-    if (e) {
-      e.preventDefault()
-    }
-    
     if (currentQuestion < 5) {
+      if (e) {
+        e.preventDefault()
+      }
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      // Wywołaj handleFormSubmit bezpośrednio
-      handleFormSubmit(e || {} as React.FormEvent)
+      // Na ostatnim kroku, pozwól formularzowi się wysłać standardowo
+      // ale najpierw sprawdź czy wszystkie pola są wypełnione
+      const requiredFields = ['name', 'email', 'serviceType', 'phoneNumber', 'websiteUrl', 'budget']
+      const missingFields = requiredFields.filter(field => !formData[field as keyof typeof formData])
+      
+      if (missingFields.length > 0) {
+        if (e) {
+          e.preventDefault()
+        }
+        console.error('Brakujące pola:', missingFields)
+        alert('Proszę wypełnić wszystkie pola formularza.')
+        return
+      }
+      
+      // Jeśli wszystkie pola są wypełnione, pozwól formularzowi się wysłać
+      console.log('Wysyłanie formularza standardowo...')
+      // Nie wywołujemy preventDefault() - pozwalamy formularzowi się wysłać
     }
   }
 
@@ -413,7 +487,7 @@ export default function LandingPage() {
               {translateText('FORMULARZ')}
             </h1>
             
-            <form action="https://formspree.io/f/mkgveked" method="POST" onSubmit={nextQuestion}>
+            <form action="https://formspree.io/f/mkgveked" method="POST" onSubmit={nextQuestion} noValidate>
               {/* Hidden inputs for Formspree */}
               <input type="hidden" name="name" value={formData.name} />
               <input type="hidden" name="email" value={formData.email} />
