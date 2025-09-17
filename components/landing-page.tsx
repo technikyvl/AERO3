@@ -157,39 +157,47 @@ export default function LandingPage() {
     }
   }
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
     setIsSubmitting(true)
     
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('https://formspree.io/f/mkgveked', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'kontakt@aerodigital.pl',
-          subject: 'Nowy formularz kontaktowy',
-          data: formData
+          name: formData.name,
+          email: formData.email,
+          service: formData.serviceType,
+          phone: formData.phoneNumber,
+          url: formData.websiteUrl,
+          budget: formData.budget
         })
       })
       
       if (response.ok) {
         setIsSubmitted(true)
       } else {
-        console.error('Failed to send email')
+        console.error('Failed to send form to Formspree')
       }
     } catch (error) {
-      console.error('Error sending email:', error)
+      console.error('Error sending form to Formspree:', error)
     } finally {
       setIsSubmitting(false)
     }
   }
 
-  const nextQuestion = () => {
+  const nextQuestion = (e?: React.FormEvent) => {
+    if (e) {
+      e.preventDefault()
+    }
+    
     if (currentQuestion < 5) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      handleFormSubmit()
+      handleFormSubmit(e || new Event('submit') as any)
     }
   }
 
@@ -385,58 +393,70 @@ export default function LandingPage() {
               {translateText('FORMULARZ')}
             </h1>
             
-            <div className="liquid-glass-dark rounded-2xl p-4 md:p-8 mb-6 md:mb-8 smooth-transition">
-              <h2 className="text-xl md:text-3xl font-ascender text-white mb-6 md:mb-8">
-                {translateText(currentQ.question)}
-              </h2>
+            <form onSubmit={nextQuestion}>
+              {/* Hidden inputs for Formspree */}
+              <input type="hidden" name="name" value={formData.name} />
+              <input type="hidden" name="email" value={formData.email} />
+              <input type="hidden" name="service" value={formData.serviceType} />
+              <input type="hidden" name="phone" value={formData.phoneNumber} />
+              <input type="hidden" name="url" value={formData.websiteUrl} />
+              <input type="hidden" name="budget" value={formData.budget} />
               
-              {currentQ.type === 'select' ? (
-                <div className="space-y-3 md:space-y-4">
-                  {currentQ.options?.map((option) => (
-                    <button
-                      key={option}
-                      onClick={() => {
-                        setFormData({...formData, [currentQ.id]: option})
-                        setTimeout(nextQuestion, 500)
-                      }}
-                      className={`w-full metallic-button rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white smooth-transition ${
-                        formData[currentQ.id as keyof typeof formData] === option ? 'bg-white/20' : ''
-                      }`}
-                    >
-                      {translateText(option)}
-                    </button>
-                  ))}
-                </div>
-              ) : (
-                <div className="space-y-4 md:space-y-6">
-                  <input
-                    type="text"
-                    value={formData[currentQ.id as keyof typeof formData]}
-                    onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
-                    placeholder={translateText(currentQ.placeholder || '')}
-                    className="w-full liquid-glass-dark rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
-                    autoFocus
-                  />
-                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-                    {currentQuestion > 0 && (
+              <div className="liquid-glass-dark rounded-2xl p-4 md:p-8 mb-6 md:mb-8 smooth-transition">
+                <h2 className="text-xl md:text-3xl font-ascender text-white mb-6 md:mb-8">
+                  {translateText(currentQ.question)}
+                </h2>
+                
+                {currentQ.type === 'select' ? (
+                  <div className="space-y-3 md:space-y-4">
+                    {currentQ.options?.map((option) => (
                       <button
-                        onClick={prevQuestion}
-                        className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition w-full sm:w-auto"
+                        key={option}
+                        type="button"
+                        onClick={() => {
+                          setFormData({...formData, [currentQ.id]: option})
+                          setTimeout(() => nextQuestion(), 500)
+                        }}
+                        className={`w-full metallic-button rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white smooth-transition ${
+                          formData[currentQ.id as keyof typeof formData] === option ? 'bg-white/20' : ''
+                        }`}
                       >
-                        {translateText('WSTECZ')}
+                        {translateText(option)}
                       </button>
-                    )}
-                    <button
-                      onClick={nextQuestion}
-                      disabled={!formData[currentQ.id as keyof typeof formData]}
-                      className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
-                    >
-                      {isSubmitting ? translateText('WYSYŁANIE...') : currentQuestion === 5 ? translateText('WYŚLIJ') : translateText('DALEJ')}
-                    </button>
+                    ))}
                   </div>
-                </div>
-              )}
-            </div>
+                ) : (
+                  <div className="space-y-4 md:space-y-6">
+                    <input
+                      type="text"
+                      value={formData[currentQ.id as keyof typeof formData]}
+                      onChange={(e) => setFormData({...formData, [currentQ.id]: e.target.value})}
+                      placeholder={translateText(currentQ.placeholder || '')}
+                      className="w-full liquid-glass-dark rounded-xl p-3 md:p-4 text-lg md:text-xl font-ascender text-white placeholder-white/50 bg-transparent border-none outline-none focus:ring-2 focus:ring-white/20 smooth-transition"
+                      autoFocus
+                    />
+                    <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                      {currentQuestion > 0 && (
+                        <button
+                          type="button"
+                          onClick={prevQuestion}
+                          className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition w-full sm:w-auto"
+                        >
+                          {translateText('WSTECZ')}
+                        </button>
+                      )}
+                      <button
+                        type="submit"
+                        disabled={!formData[currentQ.id as keyof typeof formData]}
+                        className="metallic-button rounded-xl px-6 py-3 md:px-8 md:py-3 text-base md:text-lg font-ascender text-white smooth-transition disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
+                      >
+                        {isSubmitting ? translateText('WYSYŁANIE...') : currentQuestion === 5 ? translateText('WYŚLIJ') : translateText('DALEJ')}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </form>
             
             <div className="text-white/60 font-inter smooth-transition">
               {translateText('Pytanie')} {currentQuestion + 1} {translateText('z')} {questions.length}
