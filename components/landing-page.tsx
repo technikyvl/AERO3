@@ -161,29 +161,48 @@ export default function LandingPage() {
     e.preventDefault()
     setIsSubmitting(true)
     
+    // Debug: wyświetl dane które będą wysłane
+    console.log('Wysyłane dane:', formData)
+    
     try {
+      // Formspree oczekuje danych w formacie FormData lub application/x-www-form-urlencoded
+      const formDataToSend = new FormData()
+      formDataToSend.append('name', formData.name)
+      formDataToSend.append('email', formData.email)
+      formDataToSend.append('service', formData.serviceType)
+      formDataToSend.append('phone', formData.phoneNumber)
+      formDataToSend.append('url', formData.websiteUrl)
+      formDataToSend.append('budget', formData.budget)
+      
+      console.log('FormData zawartość:')
+      for (let [key, value] of formDataToSend.entries()) {
+        console.log(key, value)
+      }
+      
       const response = await fetch('https://formspree.io/f/mkgveked', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          service: formData.serviceType,
-          phone: formData.phoneNumber,
-          url: formData.websiteUrl,
-          budget: formData.budget
-        })
+        body: formDataToSend
       })
       
+      console.log('Response status:', response.status)
+      console.log('Response ok:', response.ok)
+      
       if (response.ok) {
+        console.log('Formularz wysłany pomyślnie!')
         setIsSubmitted(true)
       } else {
-        console.error('Failed to send form to Formspree')
+        const errorText = await response.text()
+        console.error('Failed to send form to Formspree:', response.status, response.statusText, errorText)
+        // Dodaj alert dla użytkownika
+        alert(`Wystąpił błąd podczas wysyłania formularza (${response.status}). Spróbuj ponownie.`)
       }
     } catch (error) {
       console.error('Error sending form to Formspree:', error)
+      // Dodaj alert dla użytkownika
+      alert('Wystąpił błąd podczas wysyłania formularza. Sprawdź połączenie internetowe.')
     } finally {
       setIsSubmitting(false)
     }
@@ -197,7 +216,8 @@ export default function LandingPage() {
     if (currentQuestion < 5) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      handleFormSubmit(e || new Event('submit') as any)
+      // Wywołaj handleFormSubmit bezpośrednio
+      handleFormSubmit(e || {} as React.FormEvent)
     }
   }
 
@@ -393,7 +413,7 @@ export default function LandingPage() {
               {translateText('FORMULARZ')}
             </h1>
             
-            <form onSubmit={nextQuestion}>
+            <form action="https://formspree.io/f/mkgveked" method="POST" onSubmit={nextQuestion}>
               {/* Hidden inputs for Formspree */}
               <input type="hidden" name="name" value={formData.name} />
               <input type="hidden" name="email" value={formData.email} />
